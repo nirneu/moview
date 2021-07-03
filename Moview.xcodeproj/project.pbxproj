@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,6 +18,9 @@
 		84B2AFD4268F553400319818 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84B2AFD2268F553400319818 /* LaunchScreen.storyboard */; };
 		84B2AFDF268F553400319818 /* MoviewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B2AFDE268F553400319818 /* MoviewTests.swift */; };
 		84B2AFEA268F553400319818 /* MoviewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B2AFE9268F553400319818 /* MoviewUITests.swift */; };
+		84DA78912690A142002012EB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DA78902690A142002012EB /* LoginViewController.swift */; };
+		84FEA8F62690BDD400730937 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FEA8F52690BDD400730937 /* UIButtonExtension.swift */; };
+		84FEA8FB2690BE5100730937 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FEA8FA2690BE5100730937 /* RegisterViewController.swift */; };
 		B03AB7E06895617B7008CEEA /* Pods_Moview.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1C31395EB0FA6AC3608DE35 /* Pods_Moview.framework */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +63,9 @@
 		84B2AFE5268F553400319818 /* MoviewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoviewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B2AFE9268F553400319818 /* MoviewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviewUITests.swift; sourceTree = "<group>"; };
 		84B2AFEB268F553400319818 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84DA78902690A142002012EB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		84FEA8F52690BDD400730937 /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
+		84FEA8FA2690BE5100730937 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		CF12FB236BB5D21B5F905EAA /* Pods-Moview.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moview.debug.xcconfig"; path = "Target Support Files/Pods-Moview/Pods-Moview.debug.xcconfig"; sourceTree = "<group>"; };
 		EBEDFEFD4A3F9A9FA3C25260 /* Pods_Moview_MoviewUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Moview_MoviewUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1C31395EB0FA6AC3608DE35 /* Pods_Moview.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Moview.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,7 +109,6 @@
 				3142FBC083364226051C26A4 /* Pods-MoviewTests.debug.xcconfig */,
 				5A4FD8427A972FEB744A3C65 /* Pods-MoviewTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -140,6 +145,9 @@
 				84B2AFD0268F553400319818 /* Assets.xcassets */,
 				84B2AFD2268F553400319818 /* LaunchScreen.storyboard */,
 				84B2AFD5268F553400319818 /* Info.plist */,
+				84DA78902690A142002012EB /* LoginViewController.swift */,
+				84FEA8F52690BDD400730937 /* UIButtonExtension.swift */,
+				84FEA8FA2690BE5100730937 /* RegisterViewController.swift */,
 			);
 			path = Moview;
 			sourceTree = "<group>";
@@ -411,7 +419,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84DA78912690A142002012EB /* LoginViewController.swift in Sources */,
+				84FEA8F62690BDD400730937 /* UIButtonExtension.swift in Sources */,
 				84B2AFCC268F553200319818 /* ViewController.swift in Sources */,
+				84FEA8FB2690BE5100730937 /* RegisterViewController.swift in Sources */,
 				84B2AFC8268F553200319818 /* AppDelegate.swift in Sources */,
 				84B2AFCA268F553200319818 /* SceneDelegate.swift in Sources */,
 			);
