@@ -75,6 +75,9 @@
                                         <real key="value" value="21"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="loginClicked:" destination="Rdu-YJ-8zU" eventType="touchUpInside" id="Qxu-G7-1cS"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c8X-04-Cj2">
                                 <rect key="frame" x="24" y="760" width="366" height="21"/>
@@ -132,6 +135,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="omz-iF-R4K"/>
+                    <connections>
+                        <outlet property="emailText" destination="XIE-e6-XRO" id="Dph-nF-Uqs"/>
+                        <outlet property="passwordText" destination="4GU-Hk-Sb7" id="JrC-Sc-KUn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UqS-55-p8g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -6,17 +6,53 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    @IBOutlet weak var emailText: UITextField!
+    @IBOutlet weak var passwordText: UITextField!
+    
+    @IBAction func loginClicked(_ sender: Any) {
+        if (isFormValid()) {
+            Auth.auth().signIn(withEmail: emailText.text!, password: passwordText.text!) { user, error in 
+                if let error = error {
+                    if [AuthErrorCode.networkError, AuthErrorCode.wrongPassword, AuthErrorCode.userNotFound, AuthErrorCode.invalidEmail].contains(AuthErrorCode(rawValue: error._code)){
+                        self.displayAlert(message: error.localizedDescription)
+                    }
+                    else {
+                        self.displayAlert(message: "An Error occured. Please try again later")
+                    }
+                }
+                else {
+                    // user is signed in
+                    // TODO: redirect to home screen
+                    print("yay")
+                }
+            }
+        }
     }
     
-    @IBAction func backToLogin(segue: UIStoryboardSegue) {
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
+        // TODO: Check if user is signed in
     }
-
+    
+    @IBAction func backToLogin(segue: UIStoryboardSegue) {}
+    
+    
+    func isFormValid() -> Bool {
+        if ((emailText.text?.isEmpty ?? true) || (passwordText.text?.isEmpty ?? true)) {
+            displayAlert(message: "Please fill all fields")
+            return false
+        }
+        
+        return true
+    }
+    
+    func displayAlert(message:String) {
+        let alert = UIAlertController(title: "Alert", message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
 }

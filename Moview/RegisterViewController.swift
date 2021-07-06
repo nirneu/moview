@@ -29,6 +29,7 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate 
                 else {
                     // user registered successfully
                     // TODO: create user in firestore and redirect to home screen
+                    print("yay")
                 }
             }
         }
