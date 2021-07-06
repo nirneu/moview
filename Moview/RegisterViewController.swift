@@ -15,16 +15,22 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate 
     @IBOutlet weak var passwordText: UITextField!
     var selectedImage: UIImage?
     
-    @IBAction func registerButton(_ sender: Any) {
-        if (!isFormValid()) {
-            let alert = UIAlertController(title: "Error", message: "Please choose a profile picture and fill all fields", preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        }
-        else {
-            //Auth.auth().createUser(withEmail: emailText.text, password: password) { authResult, error in
-              // ...
-            //}
+    @IBAction func registerClicked(_ sender: Any) {
+        if (isFormValid()) {
+            Auth.auth().createUser(withEmail: emailText.text!, password: passwordText.text!) { authResult, error in
+                if let error = error {
+                    if [AuthErrorCode.networkError, AuthErrorCode.invalidEmail, AuthErrorCode.emailAlreadyInUse].contains(AuthErrorCode(rawValue: error._code)){
+                        self.displayAlert(message: error.localizedDescription)
+                    }
+                    else {
+                        self.displayAlert(message: "An Error occured. Please try again later")
+                    }
+                }
+                else {
+                    // user registered successfully
+                    // TODO: create user in firestore and redirect to home screen
+                }
+            }
         }
     }
     
@@ -64,19 +70,29 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate 
     
     func isFormValid() -> Bool {
         var isValid = true
-        if (self.fullNameText.text?.isEmpty ?? true) {
+        
+        checks: if selectedImage == nil {
             isValid = false
+            displayAlert(message: "Please choose a profile picture")
+            break checks
         }
-        else if (emailText.text?.isEmpty ?? true) {
+        else if ((self.fullNameText.text?.isEmpty ?? true) || (emailText.text?.isEmpty ?? true) || (passwordText.text?.isEmpty ?? true)) {
             isValid = false
+            displayAlert(message: "Please fill all fields")
+            break checks
         }
-        else if (passwordText.text?.isEmpty ?? true) {
+        else if (passwordText.text!.count < 6) {
             isValid = false
-        }
-        else if selectedImage == nil {
-            isValid = false
+            displayAlert(message: "Password must be at least 6 characters")
+            break checks
         }
         
         return isValid
+    }
+    
+    func displayAlert(message:String) {
+        let alert = UIAlertController(title: "Alert", message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 }
