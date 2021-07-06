@@ -26,7 +26,7 @@ class LoginViewController: UIViewController {
                 else {
                     // user is signed in
                     // TODO: redirect to home screen
-                    print("yay")
+                    print("home")
                 }
             }
         }
@@ -34,8 +34,13 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // TODO: Check if user is signed in
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if Auth.auth().currentUser != nil {
+          // TODO: redirect to home screen
+            print("home")
+        }
     }
     
     @IBAction func backToLogin(segue: UIStoryboardSegue) {}

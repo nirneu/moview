@@ -27,9 +27,9 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate 
                     }
                 }
                 else {
-                    // user registered successfully
-                    // TODO: create user in firestore and redirect to home screen
-                    print("yay")
+                    // TODO: upload image to storage and create user in firestore
+                    
+                    self.performSegue(withIdentifier: "backToLoginSegue", sender: self)
                 }
             }
         }
