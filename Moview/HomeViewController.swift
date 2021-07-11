@@ -11,6 +11,7 @@ class HomeViewController: UIViewController {
 
     @IBOutlet weak var reviewsTableView: UITableView!
     @IBOutlet weak var listScroller: UIActivityIndicatorView!
+    @IBOutlet weak var newReviewBtn: UIBarButtonItem!
     
     var data = [Review]()
     
