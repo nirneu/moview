@@ -11,6 +11,7 @@ import FirebaseAuth
 class LoginViewController: UIViewController {
     @IBOutlet weak var emailText: UITextField!
     @IBOutlet weak var passwordText: UITextField!
+    @IBOutlet weak var loading: UIActivityIndicatorView!
     
     @IBAction func loginClicked(_ sender: Any) {
         if (isFormValid()) {
@@ -25,8 +26,7 @@ class LoginViewController: UIViewController {
                 }
                 else {
                     // user is signed in
-                    // TODO: redirect to home screen
-                    print("home")
+                    self.performSegue(withIdentifier: "toHomeSegue", sender: self)
                 }
             }
         }
@@ -36,15 +36,16 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         if Auth.auth().currentUser != nil {
-          // TODO: redirect to home screen
-            print("home")
+            self.performSegue(withIdentifier: "toHomeSegue", sender: self)
+        }
+        else {
+            self.loading.isHidden = true
         }
     }
     
     @IBAction func backToLogin(segue: UIStoryboardSegue) {}
-    
     
     func isFormValid() -> Bool {
         if ((emailText.text?.isEmpty ?? true) || (passwordText.text?.isEmpty ?? true)) {
