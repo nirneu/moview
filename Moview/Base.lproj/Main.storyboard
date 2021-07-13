@@ -28,7 +28,7 @@
         <!--New Review-->
         <scene sceneID="NHV-O3-dDQ">
             <objects>
-                <viewController id="pgV-pH-ekO" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="pgV-pH-ekO" customClass="NewReviewViewController" customModule="Moview" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dCG-nP-m57">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -43,14 +43,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3cc-IX-tdZ">
-                                <rect key="frame" x="104" y="348" width="207" height="56"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            </pickerView>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tPz-Vb-kn9">
-                                <rect key="frame" x="104" y="412" width="207" height="56"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            </pickerView>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Summary" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b3r-Nn-jDD">
                                 <rect key="frame" x="87" y="496" width="240" height="76"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -63,13 +55,36 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Release Year" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2u7-KA-JYm">
+                                <rect key="frame" x="87" y="358" width="240" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Genre" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mim-VQ-mvE">
+                                <rect key="frame" x="87" y="431" width="240" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Cno-AN-m9f"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="New Review" id="OdJ-iK-Erg">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="lUk-Je-kH8"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="lUk-Je-kH8">
+                            <connections>
+                                <action selector="onSave:" destination="pgV-pH-ekO" id="ak7-5V-ntZ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="genre" destination="mim-VQ-mvE" id="P4D-uf-S91"/>
+                        <outlet property="movieName" destination="0Gw-y5-PvB" id="hgE-qW-ZgO"/>
+                        <outlet property="reviewText" destination="iHi-8E-96K" id="XuS-FH-dUe"/>
+                        <outlet property="summary" destination="b3r-Nn-jDD" id="bAY-C7-agI"/>
+                        <outlet property="year" destination="2u7-KA-JYm" id="88W-Ti-NTU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pVm-u1-ctH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -78,7 +93,7 @@
         <!--Home-->
         <scene sceneID="Kxa-h1-h9u">
             <objects>
-                <viewController id="YZN-f1-3HP" customClass="HomeViewController" customModule="Moview" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="YZN-f1-3HP" customClass="HomeViewController" customModule="Moview" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hyX-CJ-2Wm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

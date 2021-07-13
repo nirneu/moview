@@ -2,7 +2,7 @@
 //  Review+CoreDataProperties.swift
 //  
 //
-//  Created by admin on 10/07/2021.
+//  Created by admin on 13/07/2021.
 //
 //
 
@@ -16,14 +16,14 @@ extension Review {
         return NSFetchRequest<Review>(entityName: "Review")
     }
 
-    @NSManaged public var id: String?
-    @NSManaged public var movieName: String?
-    @NSManaged public var releaseYear: String?
     @NSManaged public var genre: String?
+    @NSManaged public var id: Int32
     @NSManaged public var imageUrl: String?
+    @NSManaged public var movieName: String?
     @NSManaged public var rating: String?
-    @NSManaged public var summary: String?
+    @NSManaged public var releaseYear: String?
     @NSManaged public var review: String?
+    @NSManaged public var summary: String?
     @NSManaged public var userName: String?
 
 }
