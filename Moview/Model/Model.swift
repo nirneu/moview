@@ -12,6 +12,7 @@ import CoreData
 class Model {
     
     static let instance = Model()
+    let modelFirebase = ModelFirebase()
     
     private init(){}
         
@@ -70,4 +71,7 @@ class Model {
         return nil
     }
     
+    func saveProfileImage(image: UIImage, userId: String, callback:@escaping (String)->Void) {
+        modelFirebase.saveImage(image: image, path: "profiles", filename: userId, callback: callback)
+    }
 }

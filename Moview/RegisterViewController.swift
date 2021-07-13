@@ -27,8 +27,16 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate 
                     }
                 }
                 else {
-                    // TODO: upload image to storage and create user in firestore
-                    
+                    // Save image
+                    Model.instance.saveProfileImage(image: self.selectedImage!, userId: Auth.auth().currentUser!.uid) { (url) in
+                        if url != "" {
+                            // Save user
+                            
+                        }
+                        else {
+                            self.displayAlert(message: "There was an error while saving your user, please try again later")
+                        }
+                    }
                     self.performSegue(withIdentifier: "backToLoginSegue", sender: self)
                 }
             }
