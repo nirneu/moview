@@ -91,7 +91,7 @@ extension User {
     
     func save() {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        context.mergePolicy = NSOverwriteMergePolicy
+        context.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
         do{
             try context.save()
         }

@@ -92,23 +92,21 @@ class Model {
     
     func getAllUsers(callback:@escaping ([User])->Void){
         var localLastUpdate = Int64(UserDefaults.standard.integer(forKey: usersLastUpdate))
-        
         modelFirebase.getAllUsers(lastUpdate: localLastUpdate) { (users) in
             if users.count > 0 {
+                for user in users {
+                    if user.lastUpdated > localLastUpdate {
+                        localLastUpdate = user.lastUpdated
+                    }
+                }
+                
+                for user in users {
+                    if user.wasDeleted {
+                        user.delete()
+                    }
+                }
+                
                 users[0].save()
-            }
-            
-            for user in users {
-                if user.wasDeleted {
-                    user.delete()
-                }
-            }
-            
-            for user in users {
-                print("lu =  \(user.lastUpdated)")
-                if user.lastUpdated > localLastUpdate {
-                    localLastUpdate = user.lastUpdated
-                }
             }
             
             UserDefaults.standard.setValue(localLastUpdate, forKey: self.usersLastUpdate)

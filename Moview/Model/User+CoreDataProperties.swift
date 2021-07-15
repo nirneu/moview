@@ -2,7 +2,7 @@
 //  User+CoreDataProperties.swift
 //  
 //
-//  Created by admin on 13/07/2021.
+//  Created by admin on 15/07/2021.
 //
 //
 
