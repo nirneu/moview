@@ -26,5 +26,18 @@ class ModelFirebase {
             }
         }
     }
+    
+    func addUser(user: User, callback:@escaping (Bool)->Void) {
+        let db = Firestore.firestore()
+        db.collection("users").document(user.id!).setData(user.toJson()) { err in
+            if let err = err {
+                callback(false)
+            }
+            else {
+                callback(true)
+            }
+        }
+        
+    }
 
 }

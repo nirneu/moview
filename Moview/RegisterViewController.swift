@@ -31,13 +31,20 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate 
                     Model.instance.saveProfileImage(image: self.selectedImage!, userId: Auth.auth().currentUser!.uid) { (url) in
                         if url != "" {
                             // Save user
-                            
+                            let user = User.create(id: Auth.auth().currentUser!.uid, fullName: self.fullNameText.text!, imageUrl: url, lastUpdated: 0)
+                            Model.instance.addUser(user: user) { (isAdded) in
+                                if (isAdded) {
+                                    self.performSegue(withIdentifier: "backToLoginSegue", sender: self)
+                                }
+                                else {
+                                    self.displayAlert(message: "There was an error while saving your user, please try again later")
+                                }
+                            }
                         }
                         else {
                             self.displayAlert(message: "There was an error while saving your user, please try again later")
                         }
                     }
-                    self.performSegue(withIdentifier: "backToLoginSegue", sender: self)
                 }
             }
         }
