@@ -56,9 +56,51 @@ public class User: NSManagedObject {
 }
 
 extension User {
+    static func getAll(callback:@escaping ([User])->Void){
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let request = User.fetchRequest() as NSFetchRequest<User>
+        
+        DispatchQueue.global().async {
+            var data = [User]()
+            do{
+                data = try context.fetch(request)
+            }
+            catch {
+            }
+            
+            DispatchQueue.main.async {
+                callback(data)
+            }
+        }
+    }
+    
+    static func get(byId:String) -> User? {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let request = User.fetchRequest() as NSFetchRequest<User>
+        request.predicate = NSPredicate(format: "id == \(byId)")
+        do {
+            let users = try context.fetch(request)
+            if users.count > 0 {
+                return users[0]
+            }
+        }
+        catch{}
+        
+        return nil
+    }
+    
     func save() {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         context.mergePolicy = NSOverwriteMergePolicy
+        do{
+            try context.save()
+        }
+        catch {}
+    }
+    
+    func delete(){
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        context.delete(self)
         do{
             try context.save()
         }

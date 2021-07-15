@@ -9,6 +9,7 @@ import Foundation
 import Firebase
 
 class ModelFirebase {
+    let usersCollection = "users"
 
     func saveImage(image: UIImage, path: String, filename: String, callback:@escaping (String)->Void) {
         let imageRef = Storage.storage().reference().child(path).child(filename)
@@ -29,7 +30,7 @@ class ModelFirebase {
     
     func addUser(user: User, callback:@escaping (Bool)->Void) {
         let db = Firestore.firestore()
-        db.collection("users").document(user.id!).setData(user.toJson()) { err in
+        db.collection(usersCollection).document(user.id!).setData(user.toJson()) { err in
             if let err = err {
                 callback(false)
             }
@@ -37,7 +38,32 @@ class ModelFirebase {
                 callback(true)
             }
         }
-        
+    }
+    
+    func getAllUsers(lastUpdate: Int64, callback:@escaping ([User])->Void){
+        let db = Firestore.firestore()
+        db.collection(usersCollection)
+            .whereField("lastUpdated", isGreaterThan: Timestamp(seconds: lastUpdate, nanoseconds: 0))
+            .getDocuments { snapshot, error in
+            if let error = error {
+                print("Error reading document: \(error)")
+            }
+            else {
+                if let snapshot = snapshot {
+                    var data = [User]()
+                    for doc in snapshot.documents {
+                        if let user = User.create(json: doc.data()) {
+                            data.append(user)
+                        }
+                    }
+                    
+                    callback(data)
+                    return
+                }
+            }
+            
+            callback([User]())
+        }
     }
 
 }
