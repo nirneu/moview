@@ -2,7 +2,7 @@
 //  Review+CoreDataClass.swift
 //  
 //
-//  Created by admin on 10/07/2021.
+//  Created by admin on 15/07/2021.
 //
 //
 
@@ -28,5 +28,4 @@ public class Review: NSManagedObject {
         
         return currReview
     }
-        
 }

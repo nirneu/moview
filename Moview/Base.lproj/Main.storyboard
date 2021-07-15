@@ -26,10 +26,94 @@
             </objects>
             <point key="canvasLocation" x="-4133" y="1100"/>
         </scene>
-        <!--Title-->
+        <!--New Review-->
+        <scene sceneID="NHV-O3-dDQ">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="pgV-pH-ekO" customClass="NewReviewViewController" customModule="Moview" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dCG-nP-m57">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo.on.rectangle.angled" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="53M-9V-79N">
+                                <rect key="frame" x="87" y="117" width="240" height="101"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="sBI-B7-hEp"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Movie Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Gw-y5-PvB">
+                                <rect key="frame" x="24" y="234" width="366" height="38.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Release Year" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2u7-KA-JYm">
+                                <rect key="frame" x="24" y="288.5" width="366" height="38.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Genre" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mim-VQ-mvE">
+                                <rect key="frame" x="24" y="343" width="366" height="38.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Review" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="B5P-Os-qQe">
+                                <rect key="frame" x="24" y="397.5" width="366" height="240.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Cno-AN-m9f"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="B5P-Os-qQe" firstAttribute="top" secondItem="mim-VQ-mvE" secondAttribute="bottom" constant="16" id="32y-jb-Wil"/>
+                            <constraint firstItem="mim-VQ-mvE" firstAttribute="top" secondItem="2u7-KA-JYm" secondAttribute="bottom" constant="16" id="5gl-sQ-DLH"/>
+                            <constraint firstItem="Cno-AN-m9f" firstAttribute="trailing" secondItem="0Gw-y5-PvB" secondAttribute="trailing" constant="24" id="7HM-9T-XVn"/>
+                            <constraint firstItem="53M-9V-79N" firstAttribute="leading" secondItem="Cno-AN-m9f" secondAttribute="leading" constant="87" id="EAX-Ss-li0"/>
+                            <constraint firstItem="B5P-Os-qQe" firstAttribute="leading" secondItem="Cno-AN-m9f" secondAttribute="leading" constant="24" id="IoV-bl-ZFI"/>
+                            <constraint firstItem="53M-9V-79N" firstAttribute="top" secondItem="Cno-AN-m9f" secondAttribute="top" constant="30" id="KJW-ag-wQ3"/>
+                            <constraint firstItem="2u7-KA-JYm" firstAttribute="leading" secondItem="Cno-AN-m9f" secondAttribute="leading" constant="24" id="LcG-uY-Zk8"/>
+                            <constraint firstItem="mim-VQ-mvE" firstAttribute="leading" secondItem="Cno-AN-m9f" secondAttribute="leading" constant="24" id="O20-8n-JJf"/>
+                            <constraint firstItem="Cno-AN-m9f" firstAttribute="bottom" secondItem="B5P-Os-qQe" secondAttribute="bottom" constant="175" id="R68-xp-qxe"/>
+                            <constraint firstItem="0Gw-y5-PvB" firstAttribute="leading" secondItem="Cno-AN-m9f" secondAttribute="leading" constant="24" id="XIV-QE-6vw"/>
+                            <constraint firstItem="Cno-AN-m9f" firstAttribute="trailing" secondItem="53M-9V-79N" secondAttribute="trailing" constant="87" id="YEC-D0-Kum"/>
+                            <constraint firstItem="Cno-AN-m9f" firstAttribute="trailing" secondItem="2u7-KA-JYm" secondAttribute="trailing" constant="24" id="pOu-Td-oSw"/>
+                            <constraint firstItem="Cno-AN-m9f" firstAttribute="trailing" secondItem="mim-VQ-mvE" secondAttribute="trailing" constant="24" id="q4q-Kg-aFA"/>
+                            <constraint firstItem="2u7-KA-JYm" firstAttribute="top" secondItem="0Gw-y5-PvB" secondAttribute="bottom" constant="16" id="qUH-b3-Qwn"/>
+                            <constraint firstItem="0Gw-y5-PvB" firstAttribute="top" secondItem="53M-9V-79N" secondAttribute="bottom" constant="16" id="uzd-K6-V4Z"/>
+                            <constraint firstItem="Cno-AN-m9f" firstAttribute="trailing" secondItem="B5P-Os-qQe" secondAttribute="trailing" constant="24" id="wD6-Q9-s1R"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="New Review" id="OdJ-iK-Erg">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="lUk-Je-kH8">
+                            <connections>
+                                <action selector="onSave:" destination="pgV-pH-ekO" id="ak7-5V-ntZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="genre" destination="mim-VQ-mvE" id="P4D-uf-S91"/>
+                        <outlet property="movieName" destination="0Gw-y5-PvB" id="hgE-qW-ZgO"/>
+                        <outlet property="review" destination="B5P-Os-qQe" id="Re5-hd-UHT"/>
+                        <outlet property="year" destination="2u7-KA-JYm" id="88W-Ti-NTU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pVm-u1-ctH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-5810.144927536232" y="1109.5982142857142"/>
+        </scene>
+        <!--Home-->
         <scene sceneID="Kxa-h1-h9u">
             <objects>
-                <viewController id="YZN-f1-3HP" customClass="HomeViewController" customModule="Moview" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="YZN-f1-3HP" customClass="HomeViewController" customModule="Moview" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hyX-CJ-2Wm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -112,17 +196,22 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="House" image="house" catalog="system" id="qM6-Sb-hG1"/>
-                    <navigationItem key="navigationItem" title="Title" id="W1i-Bd-blX">
-                        <barButtonItem key="rightBarButtonItem" title="New" image="plus" catalog="system" id="2wc-xo-jtp"/>
+                    <navigationItem key="navigationItem" title="Home" id="W1i-Bd-blX">
+                        <barButtonItem key="rightBarButtonItem" title="New" image="plus" catalog="system" id="2wc-xo-jtp">
+                            <connections>
+                                <segue destination="pgV-pH-ekO" kind="show" id="5AR-ch-2xY"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="listScroller" destination="eHc-N9-0Vs" id="bS2-Yu-uOL"/>
+                        <outlet property="newReviewBtn" destination="2wc-xo-jtp" id="xP9-9E-4LN"/>
                         <outlet property="reviewsTableView" destination="mmq-lW-mnd" id="NAA-nP-Pux"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1VX-cI-MWE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5018.840579710145" y="1099.5535714285713"/>
+            <point key="canvasLocation" x="-5001" y="1100"/>
         </scene>
         <!--Search-->
         <scene sceneID="bQk-Gn-QWY">
@@ -445,6 +534,7 @@
         <image name="logo" width="158" height="158"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="person" catalog="system" width="128" height="117"/>
+        <image name="photo.on.rectangle.angled" catalog="system" width="128" height="101"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
