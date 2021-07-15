@@ -15,7 +15,7 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginClicked(_ sender: Any) {
         if (isFormValid()) {
-            self.loading.isHidden = false
+            self.loading.startAnimating()
             Auth.auth().signIn(withEmail: emailText.text!, password: passwordText.text!) { user, error in 
                 if let error = error {
                     if [AuthErrorCode.networkError, AuthErrorCode.wrongPassword, AuthErrorCode.userNotFound, AuthErrorCode.invalidEmail].contains(AuthErrorCode(rawValue: error._code)){
@@ -38,18 +38,11 @@ class LoginViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-//        let firebaseAuth = Auth.auth()
-//        do {
-//          try firebaseAuth.signOut()
-//        } catch let signOutError as NSError {
-//          print("Error signing out: %@", signOutError)
-//        }
-
         if Auth.auth().currentUser != nil {
             self.performSegue(withIdentifier: "toHomeSegue", sender: self)
         }
         else {
-            //self.loading.isHidden = true
+            self.loading.stopAnimating()
         }
     }
     

@@ -13,16 +13,19 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate 
     @IBOutlet weak var fullNameText: UITextField!
     @IBOutlet weak var emailText: UITextField!
     @IBOutlet weak var passwordText: UITextField!
+    @IBOutlet weak var loading: UIActivityIndicatorView!
     var selectedImage: UIImage?
     
     @IBAction func registerClicked(_ sender: Any) {
         if (isFormValid()) {
+            loading.startAnimating()
             Auth.auth().createUser(withEmail: emailText.text!, password: passwordText.text!) { authResult, error in
                 if let error = error {
                     if [AuthErrorCode.networkError, AuthErrorCode.invalidEmail, AuthErrorCode.emailAlreadyInUse].contains(AuthErrorCode(rawValue: error._code)){
                         self.displayAlert(message: error.localizedDescription)
                     }
                     else {
+                        self.loading.stopAnimating()
                         self.displayAlert(message: "An Error occured. Please try again later")
                     }
                 }
@@ -37,11 +40,13 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate 
                                     self.performSegue(withIdentifier: "backToLoginSegue", sender: self)
                                 }
                                 else {
+                                    self.loading.stopAnimating()
                                     self.displayAlert(message: "There was an error while saving your user, please try again later")
                                 }
                             }
                         }
                         else {
+                            self.loading.stopAnimating()
                             self.displayAlert(message: "There was an error while saving your user, please try again later")
                         }
                     }
@@ -52,6 +57,7 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loading.stopAnimating()
 
         // Set profile image clickable
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))

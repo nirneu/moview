@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -256,12 +257,13 @@
                                     <segue destination="9Ru-AY-S7o" kind="show" id="KWz-Ki-zAn"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Ock-fj-yQK">
-                                <rect key="frame" x="182" y="423" width="50" height="50"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Ock-fj-yQK">
+                                <rect key="frame" x="172" y="413" width="70" height="70"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="1iZ-ih-TLR"/>
-                                    <constraint firstAttribute="width" constant="50" id="KRd-Az-DgV"/>
+                                    <constraint firstAttribute="height" constant="70" id="1iZ-ih-TLR"/>
+                                    <constraint firstAttribute="width" constant="70" id="KRd-Az-DgV"/>
                                 </constraints>
+                                <color key="color" systemColor="systemBlueColor"/>
                             </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8Lr-iQ-jiN"/>
@@ -384,6 +386,10 @@
                                     <constraint firstAttribute="width" constant="200" id="hAr-wb-3by"/>
                                 </constraints>
                             </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="QUF-h0-OVx">
+                                <rect key="frame" x="182" y="602.5" width="50" height="37"/>
+                                <color key="color" name="AccentColor"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="l3r-ZB-Owh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -396,9 +402,12 @@
                             <constraint firstItem="l3r-ZB-Owh" firstAttribute="trailing" secondItem="7yA-bH-RUy" secondAttribute="trailing" constant="107" id="D0p-mS-qnT"/>
                             <constraint firstItem="vw4-i0-y5K" firstAttribute="top" secondItem="l3r-ZB-Owh" secondAttribute="top" constant="24" id="ECC-2y-g7L"/>
                             <constraint firstItem="4Qs-9L-PHI" firstAttribute="leading" secondItem="l3r-ZB-Owh" secondAttribute="leading" constant="24" id="HHg-Bd-HkB"/>
+                            <constraint firstItem="QUF-h0-OVx" firstAttribute="top" secondItem="e5p-bx-9zY" secondAttribute="bottom" constant="24" id="OPu-aq-SOU"/>
                             <constraint firstItem="e5p-bx-9zY" firstAttribute="top" secondItem="hiy-rG-pz3" secondAttribute="bottom" constant="24" id="Pn9-G1-o6D"/>
                             <constraint firstItem="l3r-ZB-Owh" firstAttribute="bottom" secondItem="lRu-Gr-xSE" secondAttribute="bottom" constant="24" id="QK5-ck-p7b"/>
                             <constraint firstItem="hiy-rG-pz3" firstAttribute="trailing" secondItem="hfU-f5-KFt" secondAttribute="trailing" id="RbW-ED-6Ew"/>
+                            <constraint firstItem="l3r-ZB-Owh" firstAttribute="trailing" secondItem="QUF-h0-OVx" secondAttribute="trailing" constant="182" id="SiO-b7-6fF"/>
+                            <constraint firstItem="QUF-h0-OVx" firstAttribute="leading" secondItem="l3r-ZB-Owh" secondAttribute="leading" constant="182" id="Srv-ux-dso"/>
                             <constraint firstItem="e5p-bx-9zY" firstAttribute="trailing" secondItem="hiy-rG-pz3" secondAttribute="trailing" id="UWp-bI-Yqk"/>
                             <constraint firstItem="lRu-Gr-xSE" firstAttribute="top" secondItem="4Qs-9L-PHI" secondAttribute="bottom" constant="16" id="Vgh-VS-9Vz"/>
                             <constraint firstItem="lRu-Gr-xSE" firstAttribute="leading" secondItem="Anh-T7-W7M" secondAttribute="leading" constant="24" id="cIA-D2-pvW"/>
@@ -418,6 +427,7 @@
                     <connections>
                         <outlet property="emailText" destination="hfU-f5-KFt" id="sY3-F9-88h"/>
                         <outlet property="fullNameText" destination="pry-xh-eXF" id="r0f-3g-cuA"/>
+                        <outlet property="loading" destination="QUF-h0-OVx" id="7nU-uI-KHP"/>
                         <outlet property="passwordText" destination="hiy-rG-pz3" id="HmO-JN-luQ"/>
                         <outlet property="profileImage" destination="7yA-bH-RUy" id="aWy-Ws-n3j"/>
                     </connections>
@@ -425,7 +435,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dQV-il-HzR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="Pn6-Bc-htq" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-4168" y="378"/>
+            <point key="canvasLocation" x="-4168.115942028986" y="377.67857142857139"/>
         </scene>
     </scenes>
     <resources>
@@ -436,6 +446,9 @@
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
