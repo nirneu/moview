@@ -2,12 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/admin/Desktop/Swift Projects/Moview/Moview/Model/Review+CoreDataClass.swift">
-   </FileRef>
-   <FileRef
-      location = "group:/Users/admin/Desktop/Swift Projects/Moview/Moview/Model/Review+CoreDataProperties.swift">
-   </FileRef>
-   <FileRef
       location = "group:Moview.xcodeproj">
    </FileRef>
    <FileRef

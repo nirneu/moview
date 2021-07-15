@@ -33,43 +33,63 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="photo.on.rectangle.angled" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="53M-9V-79N">
-                                <rect key="frame" x="87" y="131" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo.on.rectangle.angled" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="53M-9V-79N">
+                                <rect key="frame" x="87" y="117" width="240" height="101"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="sBI-B7-hEp"/>
+                                </constraints>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Movie Name" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Gw-y5-PvB">
-                                <rect key="frame" x="87" y="288" width="240" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Movie Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Gw-y5-PvB">
+                                <rect key="frame" x="24" y="234" width="366" height="38.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Summary" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b3r-Nn-jDD">
-                                <rect key="frame" x="87" y="496" width="240" height="76"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Release Year" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2u7-KA-JYm">
+                                <rect key="frame" x="24" y="288.5" width="366" height="38.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Review" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iHi-8E-96K">
-                                <rect key="frame" x="87" y="598" width="240" height="76"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Genre" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mim-VQ-mvE">
+                                <rect key="frame" x="24" y="343" width="366" height="38.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Release Year" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2u7-KA-JYm">
-                                <rect key="frame" x="87" y="358" width="240" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Genre" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mim-VQ-mvE">
-                                <rect key="frame" x="87" y="431" width="240" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Review" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="B5P-Os-qQe">
+                                <rect key="frame" x="24" y="397.5" width="366" height="240.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Cno-AN-m9f"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="B5P-Os-qQe" firstAttribute="top" secondItem="mim-VQ-mvE" secondAttribute="bottom" constant="16" id="32y-jb-Wil"/>
+                            <constraint firstItem="mim-VQ-mvE" firstAttribute="top" secondItem="2u7-KA-JYm" secondAttribute="bottom" constant="16" id="5gl-sQ-DLH"/>
+                            <constraint firstItem="Cno-AN-m9f" firstAttribute="trailing" secondItem="0Gw-y5-PvB" secondAttribute="trailing" constant="24" id="7HM-9T-XVn"/>
+                            <constraint firstItem="53M-9V-79N" firstAttribute="leading" secondItem="Cno-AN-m9f" secondAttribute="leading" constant="87" id="EAX-Ss-li0"/>
+                            <constraint firstItem="B5P-Os-qQe" firstAttribute="leading" secondItem="Cno-AN-m9f" secondAttribute="leading" constant="24" id="IoV-bl-ZFI"/>
+                            <constraint firstItem="53M-9V-79N" firstAttribute="top" secondItem="Cno-AN-m9f" secondAttribute="top" constant="30" id="KJW-ag-wQ3"/>
+                            <constraint firstItem="2u7-KA-JYm" firstAttribute="leading" secondItem="Cno-AN-m9f" secondAttribute="leading" constant="24" id="LcG-uY-Zk8"/>
+                            <constraint firstItem="mim-VQ-mvE" firstAttribute="leading" secondItem="Cno-AN-m9f" secondAttribute="leading" constant="24" id="O20-8n-JJf"/>
+                            <constraint firstItem="Cno-AN-m9f" firstAttribute="bottom" secondItem="B5P-Os-qQe" secondAttribute="bottom" constant="175" id="R68-xp-qxe"/>
+                            <constraint firstItem="0Gw-y5-PvB" firstAttribute="leading" secondItem="Cno-AN-m9f" secondAttribute="leading" constant="24" id="XIV-QE-6vw"/>
+                            <constraint firstItem="Cno-AN-m9f" firstAttribute="trailing" secondItem="53M-9V-79N" secondAttribute="trailing" constant="87" id="YEC-D0-Kum"/>
+                            <constraint firstItem="Cno-AN-m9f" firstAttribute="trailing" secondItem="2u7-KA-JYm" secondAttribute="trailing" constant="24" id="pOu-Td-oSw"/>
+                            <constraint firstItem="Cno-AN-m9f" firstAttribute="trailing" secondItem="mim-VQ-mvE" secondAttribute="trailing" constant="24" id="q4q-Kg-aFA"/>
+                            <constraint firstItem="2u7-KA-JYm" firstAttribute="top" secondItem="0Gw-y5-PvB" secondAttribute="bottom" constant="16" id="qUH-b3-Qwn"/>
+                            <constraint firstItem="0Gw-y5-PvB" firstAttribute="top" secondItem="53M-9V-79N" secondAttribute="bottom" constant="16" id="uzd-K6-V4Z"/>
+                            <constraint firstItem="Cno-AN-m9f" firstAttribute="trailing" secondItem="B5P-Os-qQe" secondAttribute="trailing" constant="24" id="wD6-Q9-s1R"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="New Review" id="OdJ-iK-Erg">
                         <barButtonItem key="rightBarButtonItem" title="Save" id="lUk-Je-kH8">
@@ -81,8 +101,7 @@
                     <connections>
                         <outlet property="genre" destination="mim-VQ-mvE" id="P4D-uf-S91"/>
                         <outlet property="movieName" destination="0Gw-y5-PvB" id="hgE-qW-ZgO"/>
-                        <outlet property="reviewText" destination="iHi-8E-96K" id="XuS-FH-dUe"/>
-                        <outlet property="summary" destination="b3r-Nn-jDD" id="bAY-C7-agI"/>
+                        <outlet property="review" destination="B5P-Os-qQe" id="Re5-hd-UHT"/>
                         <outlet property="year" destination="2u7-KA-JYm" id="88W-Ti-NTU"/>
                     </connections>
                 </viewController>

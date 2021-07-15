@@ -2,7 +2,7 @@
 //  Review+CoreDataClass.swift
 //  
 //
-//  Created by admin on 13/07/2021.
+//  Created by admin on 15/07/2021.
 //
 //
 
@@ -12,7 +12,7 @@ import UIKit
 
 @objc(Review)
 public class Review: NSManagedObject {
-    static func createReview(id:Int32, movieName: String, releaseYear: String, genre: String, imageUrl: String, rating: String,
+    static func createReview(id:String, movieName: String, releaseYear: String, genre: String, imageUrl: String, rating: String,
                              summary: String, review: String, userName:String)-> Review {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let currReview = Review(context: context)
