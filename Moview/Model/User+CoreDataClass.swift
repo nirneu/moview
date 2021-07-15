@@ -77,7 +77,7 @@ extension User {
     static func get(byId:String) -> User? {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let request = User.fetchRequest() as NSFetchRequest<User>
-        request.predicate = NSPredicate(format: "id == \(byId)")
+        request.predicate = NSPredicate(format: "id == %@", byId)
         do {
             let users = try context.fetch(request)
             if users.count > 0 {
