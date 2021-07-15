@@ -17,6 +17,7 @@
 		842CDED12698C18000318F0A /* ReviewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842CDED02698C18000318F0A /* ReviewsTableViewCell.swift */; };
 		842CDF19269A054E00318F0A /* ReviewModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 842CDF17269A054E00318F0A /* ReviewModel.xcdatamodeld */; };
 		847D39A9268F6A74005DE603 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 847D39A8268F6A74005DE603 /* GoogleService-Info.plist */; };
+		849CB07D26A069D500991076 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849CB07C26A069D500991076 /* User+CoreDataProperties.swift */; };
 		84B2AFC8268F553200319818 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B2AFC7268F553200319818 /* AppDelegate.swift */; };
 		84B2AFCA268F553200319818 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B2AFC9268F553200319818 /* SceneDelegate.swift */; };
 		84B2AFCC268F553200319818 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B2AFCB268F553200319818 /* ViewController.swift */; };
@@ -25,6 +26,11 @@
 		84B2AFD4268F553400319818 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84B2AFD2268F553400319818 /* LaunchScreen.storyboard */; };
 		84B2AFDF268F553400319818 /* MoviewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B2AFDE268F553400319818 /* MoviewTests.swift */; };
 		84B2AFEA268F553400319818 /* MoviewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B2AFE9268F553400319818 /* MoviewUITests.swift */; };
+		84C72C36269D9D0200D24C4F /* ModelFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C72C35269D9D0200D24C4F /* ModelFirebase.swift */; };
+		84C72C42269DA7AD00D24C4F /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C72C41269DA7AD00D24C4F /* User+CoreDataClass.swift */; };
+		84DA78912690A142002012EB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DA78902690A142002012EB /* LoginViewController.swift */; };
+		84FEA8F62690BDD400730937 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FEA8F52690BDD400730937 /* UIButtonExtension.swift */; };
+		84FEA8FB2690BE5100730937 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FEA8FA2690BE5100730937 /* RegisterViewController.swift */; };
 		B03AB7E06895617B7008CEEA /* Pods_Moview.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1C31395EB0FA6AC3608DE35 /* Pods_Moview.framework */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +66,7 @@
 		842CDED02698C18000318F0A /* ReviewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsTableViewCell.swift; sourceTree = "<group>"; };
 		842CDF18269A054E00318F0A /* ReviewModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ReviewModel.xcdatamodel; sourceTree = "<group>"; };
 		847D39A8268F6A74005DE603 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		849CB07C26A069D500991076 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "User+CoreDataProperties.swift"; path = "/Users/admin/Desktop/Projects/Moview/Moview/Model/User+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		84B2AFC4268F553200319818 /* Moview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moview.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B2AFC7268F553200319818 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84B2AFC9268F553200319818 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +81,11 @@
 		84B2AFE5268F553400319818 /* MoviewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoviewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B2AFE9268F553400319818 /* MoviewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviewUITests.swift; sourceTree = "<group>"; };
 		84B2AFEB268F553400319818 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84C72C35269D9D0200D24C4F /* ModelFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelFirebase.swift; sourceTree = "<group>"; };
+		84C72C41269DA7AD00D24C4F /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		84DA78902690A142002012EB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		84FEA8F52690BDD400730937 /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
+		84FEA8FA2690BE5100730937 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		CF12FB236BB5D21B5F905EAA /* Pods-Moview.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moview.debug.xcconfig"; path = "Target Support Files/Pods-Moview/Pods-Moview.debug.xcconfig"; sourceTree = "<group>"; };
 		EBEDFEFD4A3F9A9FA3C25260 /* Pods_Moview_MoviewUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Moview_MoviewUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1C31395EB0FA6AC3608DE35 /* Pods_Moview.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Moview.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -125,8 +137,11 @@
 			children = (
 				8425924126A0AB64000D5CE0 /* Review+CoreDataClass.swift */,
 				8425923C26A0AACF000D5CE0 /* Review+CoreDataProperties.swift */,
+				849CB07C26A069D500991076 /* User+CoreDataProperties.swift */,
+				84C72C41269DA7AD00D24C4F /* User+CoreDataClass.swift */,
 				842CDF17269A054E00318F0A /* ReviewModel.xcdatamodeld */,
 				842CDEC32693539100318F0A /* Model.swift */,
+				84C72C35269D9D0200D24C4F /* ModelFirebase.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -165,6 +180,9 @@
 				84B2AFD0268F553400319818 /* Assets.xcassets */,
 				84B2AFD2268F553400319818 /* LaunchScreen.storyboard */,
 				84B2AFD5268F553400319818 /* Info.plist */,
+				84DA78902690A142002012EB /* LoginViewController.swift */,
+				84FEA8F52690BDD400730937 /* UIButtonExtension.swift */,
+				84FEA8FA2690BE5100730937 /* RegisterViewController.swift */,
 				842CDEB02693417100318F0A /* HomeViewController.swift */,
 				842CDED02698C18000318F0A /* ReviewsTableViewCell.swift */,
 				8425922A269E1DFF000D5CE0 /* NewReviewViewController.swift */,
@@ -439,14 +457,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84DA78912690A142002012EB /* LoginViewController.swift in Sources */,
+				84FEA8F62690BDD400730937 /* UIButtonExtension.swift in Sources */,
 				84B2AFCC268F553200319818 /* ViewController.swift in Sources */,
+				84FEA8FB2690BE5100730937 /* RegisterViewController.swift in Sources */,
 				842CDED12698C18000318F0A /* ReviewsTableViewCell.swift in Sources */,
 				842CDF19269A054E00318F0A /* ReviewModel.xcdatamodeld in Sources */,
 				8425924226A0AB64000D5CE0 /* Review+CoreDataClass.swift in Sources */,
 				8425923D26A0AAD0000D5CE0 /* Review+CoreDataProperties.swift in Sources */,
+				84C72C42269DA7AD00D24C4F /* User+CoreDataClass.swift in Sources */,
+				849CB07D26A069D500991076 /* User+CoreDataProperties.swift in Sources */,
 				84B2AFC8268F553200319818 /* AppDelegate.swift in Sources */,
 				842CDEC42693539100318F0A /* Model.swift in Sources */,
 				84B2AFCA268F553200319818 /* SceneDelegate.swift in Sources */,
+				84C72C36269D9D0200D24C4F /* ModelFirebase.swift in Sources */,
 				842CDEB12693417100318F0A /* HomeViewController.swift in Sources */,
 				8425922B269E1DFF000D5CE0 /* NewReviewViewController.swift in Sources */,
 			);
