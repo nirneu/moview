@@ -15,6 +15,7 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginClicked(_ sender: Any) {
         if (isFormValid()) {
+            self.loading.startAnimating()
             Auth.auth().signIn(withEmail: emailText.text!, password: passwordText.text!) { user, error in 
                 if let error = error {
                     if [AuthErrorCode.networkError, AuthErrorCode.wrongPassword, AuthErrorCode.userNotFound, AuthErrorCode.invalidEmail].contains(AuthErrorCode(rawValue: error._code)){
@@ -41,7 +42,7 @@ class LoginViewController: UIViewController {
             self.performSegue(withIdentifier: "toHomeSegue", sender: self)
         }
         else {
-            self.loading.isHidden = true
+            self.loading.stopAnimating()
         }
     }
     

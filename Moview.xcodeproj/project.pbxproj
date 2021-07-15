@@ -24,6 +24,9 @@
 		84B2AFD4268F553400319818 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84B2AFD2268F553400319818 /* LaunchScreen.storyboard */; };
 		84B2AFDF268F553400319818 /* MoviewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B2AFDE268F553400319818 /* MoviewTests.swift */; };
 		84B2AFEA268F553400319818 /* MoviewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B2AFE9268F553400319818 /* MoviewUITests.swift */; };
+		84C72C36269D9D0200D24C4F /* ModelFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C72C35269D9D0200D24C4F /* ModelFirebase.swift */; };
+		84C72C3D269DA77A00D24C4F /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C72C3B269DA77A00D24C4F /* User+CoreDataProperties.swift */; };
+		84C72C42269DA7AD00D24C4F /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C72C41269DA7AD00D24C4F /* User+CoreDataClass.swift */; };
 		84DA78912690A142002012EB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DA78902690A142002012EB /* LoginViewController.swift */; };
 		84FEA8F62690BDD400730937 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FEA8F52690BDD400730937 /* UIButtonExtension.swift */; };
 		84FEA8FB2690BE5100730937 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FEA8FA2690BE5100730937 /* RegisterViewController.swift */; };
@@ -75,6 +78,9 @@
 		84B2AFE5268F553400319818 /* MoviewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoviewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B2AFE9268F553400319818 /* MoviewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviewUITests.swift; sourceTree = "<group>"; };
 		84B2AFEB268F553400319818 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84C72C35269D9D0200D24C4F /* ModelFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelFirebase.swift; sourceTree = "<group>"; };
+		84C72C3B269DA77A00D24C4F /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		84C72C41269DA7AD00D24C4F /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
 		84DA78902690A142002012EB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		84FEA8F52690BDD400730937 /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		84FEA8FA2690BE5100730937 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -127,10 +133,13 @@
 		842CDEB52693428800318F0A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				84C72C41269DA7AD00D24C4F /* User+CoreDataClass.swift */,
+				84C72C3B269DA77A00D24C4F /* User+CoreDataProperties.swift */,
 				842CDF30269A080000318F0A /* Review+CoreDataClass.swift */,
 				842CDF32269A080200318F0A /* Review+CoreDataProperties.swift */,
 				842CDF17269A054E00318F0A /* ReviewModel.xcdatamodeld */,
 				842CDEC32693539100318F0A /* Model.swift */,
+				84C72C35269D9D0200D24C4F /* ModelFirebase.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -451,11 +460,14 @@
 				84FEA8FB2690BE5100730937 /* RegisterViewController.swift in Sources */,
 				842CDED12698C18000318F0A /* ReviewsTableViewCell.swift in Sources */,
 				842CDF19269A054E00318F0A /* ReviewModel.xcdatamodeld in Sources */,
+				84C72C42269DA7AD00D24C4F /* User+CoreDataClass.swift in Sources */,
 				842CDF31269A080000318F0A /* Review+CoreDataClass.swift in Sources */,
+				84C72C3D269DA77A00D24C4F /* User+CoreDataProperties.swift in Sources */,
 				842CDF33269A080300318F0A /* Review+CoreDataProperties.swift in Sources */,
 				84B2AFC8268F553200319818 /* AppDelegate.swift in Sources */,
 				842CDEC42693539100318F0A /* Model.swift in Sources */,
 				84B2AFCA268F553200319818 /* SceneDelegate.swift in Sources */,
+				84C72C36269D9D0200D24C4F /* ModelFirebase.swift in Sources */,
 				842CDEB12693417100318F0A /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

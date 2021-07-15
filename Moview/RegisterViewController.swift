@@ -13,23 +13,43 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate 
     @IBOutlet weak var fullNameText: UITextField!
     @IBOutlet weak var emailText: UITextField!
     @IBOutlet weak var passwordText: UITextField!
+    @IBOutlet weak var loading: UIActivityIndicatorView!
     var selectedImage: UIImage?
     
     @IBAction func registerClicked(_ sender: Any) {
         if (isFormValid()) {
+            loading.startAnimating()
             Auth.auth().createUser(withEmail: emailText.text!, password: passwordText.text!) { authResult, error in
                 if let error = error {
                     if [AuthErrorCode.networkError, AuthErrorCode.invalidEmail, AuthErrorCode.emailAlreadyInUse].contains(AuthErrorCode(rawValue: error._code)){
                         self.displayAlert(message: error.localizedDescription)
                     }
                     else {
+                        self.loading.stopAnimating()
                         self.displayAlert(message: "An Error occured. Please try again later")
                     }
                 }
                 else {
-                    // TODO: upload image to storage and create user in firestore
-                    
-                    self.performSegue(withIdentifier: "backToLoginSegue", sender: self)
+                    // Save image
+                    Model.instance.saveProfileImage(image: self.selectedImage!, userId: Auth.auth().currentUser!.uid) { (url) in
+                        if url != "" {
+                            // Save user
+                            let user = User.create(id: Auth.auth().currentUser!.uid, fullName: self.fullNameText.text!, imageUrl: url, lastUpdated: 0)
+                            Model.instance.addUser(user: user) { (isAdded) in
+                                if (isAdded) {
+                                    self.performSegue(withIdentifier: "backToLoginSegue", sender: self)
+                                }
+                                else {
+                                    self.loading.stopAnimating()
+                                    self.displayAlert(message: "There was an error while saving your user, please try again later")
+                                }
+                            }
+                        }
+                        else {
+                            self.loading.stopAnimating()
+                            self.displayAlert(message: "There was an error while saving your user, please try again later")
+                        }
+                    }
                 }
             }
         }
@@ -37,6 +57,7 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loading.stopAnimating()
 
         // Set profile image clickable
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
