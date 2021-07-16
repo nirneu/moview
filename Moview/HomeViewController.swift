@@ -10,29 +10,40 @@ import UIKit
 class HomeViewController: UIViewController {
 
     @IBOutlet weak var reviewsTableView: UITableView!
-    @IBOutlet weak var listScroller: UIActivityIndicatorView!
     @IBOutlet weak var newReviewBtn: UIBarButtonItem!
     
     var data = [Review]()
+    var refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let review = Review.createReview(id: "0", movieName: "Love is in the air", releaseYear: "2012", genre: "Drama", imageUrl: "", rating: "5", summary: "", review: "5", userName: "Max")
-//        Model.instance.add(review: review)
-//        let r = Model.instance.getReview(byId: "1")
-//        Model.instance.delete(review:r!)
-        listScroller.hidesWhenStopped = true
+        reviewsTableView.addSubview(refreshControl)
+        refreshControl.addTarget(self, action:#selector(refresh) , for: .valueChanged)
+        
+        reloadData()
+        Model.instance.notificationReviewsList.observe {
+            self.reloadData()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if (data.count == 0) {
-            listScroller.startAnimating()
-        }
+//        if (data.count == 0) {
+//            listScroller.startAnimating()
+//        }
+
+    }
+    
+    @objc func refresh(_ sender: AnyObject) {
+        self.reloadData()
+    }
+    
+    func reloadData(){
+        refreshControl.beginRefreshing()
         Model.instance.getAllReviews { reviews in
             self.data = reviews
             self.reviewsTableView.reloadData()
-            self.listScroller.stopAnimating()
+            self.refreshControl.endRefreshing()
         }
     }
 }

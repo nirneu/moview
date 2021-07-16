@@ -2,7 +2,7 @@
 //  Review+CoreDataProperties.swift
 //  
 //
-//  Created by admin on 15/07/2021.
+//  Created by admin on 16/07/2021.
 //
 //
 
@@ -23,7 +23,8 @@ extension Review {
     @NSManaged public var rating: String?
     @NSManaged public var releaseYear: String?
     @NSManaged public var review: String?
-    @NSManaged public var summary: String?
     @NSManaged public var userName: String?
+    @NSManaged public var lastUpdated: Int64
+    @NSManaged public var wasDeleted: Bool
 
 }
