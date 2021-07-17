@@ -13,7 +13,7 @@ import Firebase
 
 @objc(Review)
 public class Review: NSManagedObject {
-    static func createReview(movieName: String, releaseYear: String, genre: String, imageUrl: String, rating: String, review: String, userName:String , lastUpdated: Int64)-> Review {
+    static func createReview(movieName: String, releaseYear: Int64, genre: String, imageUrl: String, rating: Int64, review: String, userId:String , lastUpdated: Int64)-> Review {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let currReview = Review(context: context)
         currReview.movieName = movieName
@@ -22,7 +22,7 @@ public class Review: NSManagedObject {
         currReview.review = review
         currReview.imageUrl = imageUrl
         currReview.rating = rating
-        currReview.userName = userName
+        currReview.userId = userId
         currReview.lastUpdated = lastUpdated
         currReview.wasDeleted = false
         
@@ -32,13 +32,13 @@ public class Review: NSManagedObject {
     static func create(json:[String:Any])->Review? {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let review = Review(context: context)
-//        review.id = json["id"] as? String
+        review.id = json["id"] as? String
         review.movieName = json["movieName"] as? String
-        review.releaseYear = json["releaseYear"] as? String
+        review.releaseYear = (json["releaseYear"] as? Int64)!
         review.genre = json["genre"] as? String
         review.review = json["review"] as? String
-        review.rating = json["rating"] as? String
-        review.userName = json["userName"] as? String
+        review.rating = (json["rating"] as? Int64)!
+        review.userId = json["userId"] as? String
         review.imageUrl = json["imageUrl"] as? String
         review.lastUpdated = 0
         
@@ -53,14 +53,15 @@ public class Review: NSManagedObject {
         return review
     }
     
-    func toJson()->[String:Any] {
+    func toJson(withId: String)->[String:Any] {
         var json = [String:Any]()
-//        json["id"] = id!
+        json["id"] = id!
         json["movieName"] = movieName!
-        json["releaseYear"] = releaseYear!
+        json["releaseYear"] = releaseYear
         json["genre"] = genre!
         json["review"] = review!
-        json["rating"] = rating!
+        json["rating"] = rating
+        json["userId"] = userId!
         json["lastUpdated"] = FieldValue.serverTimestamp()
         json["wasDeleted"] = wasDeleted
         
@@ -92,6 +93,7 @@ extension Review {
     
     func save(){
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        context.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
         do {
             try context.save()
         } catch {

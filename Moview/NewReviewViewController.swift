@@ -65,16 +65,29 @@ class NewReviewViewController: UIViewController, UIImagePickerControllerDelegate
     @IBAction func onSave(_ sender: Any) {
         if (isFormValid()) {
             loading.startAnimating()
-            let userNameOfReview = Model.instance.getUser(byId: Auth.auth().currentUser!.uid)
-//            (userNameOfReview?.fullName!)!
-            let review = Review.createReview(movieName: movieName.text!, releaseYear: year.text!, genre: genre.text!, imageUrl: "", rating: rating.text!, review: reviewText.text!, userName: Auth.auth().currentUser!.uid, lastUpdated: 0)
+            
+            let review = Review.createReview(movieName: movieName.text!, releaseYear: Int64(year.text!)!, genre: genre.text!, imageUrl: "", rating: Int64(rating.text!)!, review: reviewText.text!, userId: Auth.auth().currentUser!.uid, lastUpdated: 0)
+            
             Model.instance.add(review: review) { docID in
-                Model.instance.saveReviewImage(image: self.selectedImageVar!, userId: docID) { imageUrl in
-                    
+                if docID != "" {
+                    review.id = docID
+                    Model.instance.saveReviewImage(image: self.selectedImageVar!, userId: docID) { imageUrl in
+                        if imageUrl != "" {
+                            Model.instance.update(review: review) { isUpdated in
+                                if isUpdated {
+                                    self.navigationController?.popViewController(animated: true)
+                                } else {
+                                    self.displayAlert(message: "Failed to create review")
+                                }
+                            }
+                        } else {
+                            self.displayAlert(message: "Failed to create review")
+                        }
+                    }
+                } else {
+                    self.displayAlert(message: "Failed to create review")
                 }
             }
-
-        _ = navigationController?.popViewController(animated: true)
         }
     }
     

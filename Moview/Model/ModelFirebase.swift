@@ -100,7 +100,7 @@ class ModelFirebase {
         let db = Firestore.firestore()
         var ref: DocumentReference? = nil
         
-        ref = db.collection(reviewsCollection).addDocument(data: review.toJson()) { err in
+        ref = db.collection(reviewsCollection).addDocument(data: review.toJson(withId: "")) { err in
             if let err = err {
                 print("Error writing document: \(err)")
                 callback("")
@@ -121,6 +121,20 @@ class ModelFirebase {
             }
             else {
                 print("Document removed successfully!")
+                callback(true)
+            }
+        }
+    }
+    
+    func update(review: Review, callback:@escaping (Bool)->Void) {
+        let db = Firestore.firestore()
+        db.collection(reviewsCollection).document(review.id!).setData(review.toJson(withId: "true")) { err in
+            if let err = err {
+                print("Error updating document: \(err)")
+                callback(false)
+            }
+            else {
+                print("Document updated successfully!")
                 callback(true)
             }
         }

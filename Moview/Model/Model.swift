@@ -74,9 +74,18 @@ class Model {
     func delete(review:Review, callback:@escaping (Bool)->Void){
         modelFirebase.delete(review: review) { isRemoved in
             if isRemoved {
-                //self.notificationStudentList.post()
+                self.notificationReviewsList.post()
             }
             callback(isRemoved)
+        }
+    }
+    
+    func update(review:Review, callback:@escaping (Bool)->Void){
+        modelFirebase.update(review: review) { isUpdated in
+            if (isUpdated) {
+                self.notificationReviewsList.post()
+            }
+            callback(isUpdated)
         }
     }
     

@@ -40,10 +40,15 @@ class HomeViewController: UIViewController {
     
     func reloadData(){
         refreshControl.beginRefreshing()
-        Model.instance.getAllReviews { reviews in
-            self.data = reviews
-            self.reviewsTableView.reloadData()
-            self.refreshControl.endRefreshing()
+        Model.instance.getAllUsers() { users in
+            Model.instance.getAllReviews { reviews in
+                for review in reviews {
+                    print("\(review.id)")
+                }
+                self.data = reviews
+                self.reviewsTableView.reloadData()
+                self.refreshControl.endRefreshing()
+            }
         }
     }
 }
@@ -63,9 +68,13 @@ extension HomeViewController: UITableViewDataSource {
         
         let review = data[indexPath.row]
         cell.movieTitle.text = review.movieName
-        cell.releaseYear.text = review.releaseYear
+        cell.releaseYear.text = String(review.releaseYear)
         cell.genre.text = review.genre
-        cell.userName.text = review.userName
+//        cell.imageView
+        
+        if let user = Model.instance.getUser(byId: review.userId!) {
+            cell.userName.text = user.fullName
+        }
         
         return cell
     }
