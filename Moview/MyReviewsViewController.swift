@@ -35,6 +35,31 @@ class MyReviewsViewController: UIViewController {
             let touchPoint = gestureRecognizer.location(in: self.myReviewsTableView)
             if let indexPath = myReviewsTableView.indexPathForRow(at: touchPoint) {
                 print(indexPath.row)
+                let alert = UIAlertController(
+                    title: nil,
+                    message: nil,
+                    preferredStyle: .actionSheet
+                )
+
+                alert.addAction(
+                    .init(title: "Edit", style: .default) { _ in
+                        // TODO: edit review
+                        print("edit")
+                    }
+                )
+
+                alert.addAction(
+                    .init(title: "Delete", style: .destructive) { _ in
+                        // TODO: delete review
+                        print("delete")
+                    }
+                )
+                
+                alert.addAction(
+                    .init(title: "Cancel", style: .cancel) { _ in
+                })
+
+                present(alert, animated: true)
             }
         }
     }
