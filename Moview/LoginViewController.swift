@@ -18,6 +18,7 @@ class LoginViewController: UIViewController {
             self.loading.startAnimating()
             Auth.auth().signIn(withEmail: emailText.text!, password: passwordText.text!) { user, error in 
                 if let error = error {
+                    self.loading.stopAnimating()
                     if [AuthErrorCode.networkError, AuthErrorCode.wrongPassword, AuthErrorCode.userNotFound, AuthErrorCode.invalidEmail].contains(AuthErrorCode(rawValue: error._code)){
                         self.displayAlert(message: error.localizedDescription)
                     }
