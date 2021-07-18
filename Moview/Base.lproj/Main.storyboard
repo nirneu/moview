@@ -282,9 +282,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R2h-3K-JKk">
-                                <rect key="frame" x="186" y="294" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_avatar" translatesAutoresizingMaskIntoConstraints="NO" id="fSZ-75-B01">
+                                <rect key="frame" x="107" y="80" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="9DW-ps-shk"/>
+                                    <constraint firstAttribute="width" constant="200" id="oTT-gy-Jce"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="100"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dIs-HI-Ajo">
+                                <rect key="frame" x="24" y="304" width="366" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zgH-f4-vbw">
+                                <rect key="frame" x="24" y="350" width="366" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -292,6 +311,17 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="DPa-rj-kL0"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="DPa-rj-kL0" firstAttribute="trailing" secondItem="dIs-HI-Ajo" secondAttribute="trailing" constant="24" id="2NI-vO-6A0"/>
+                            <constraint firstItem="fSZ-75-B01" firstAttribute="top" secondItem="DPa-rj-kL0" secondAttribute="top" constant="24" id="F7u-J1-aqD"/>
+                            <constraint firstItem="zgH-f4-vbw" firstAttribute="leading" secondItem="DPa-rj-kL0" secondAttribute="leading" constant="24" id="JaS-sm-nbr"/>
+                            <constraint firstItem="DPa-rj-kL0" firstAttribute="trailing" secondItem="fSZ-75-B01" secondAttribute="trailing" constant="107" id="Zl9-Dd-R9W"/>
+                            <constraint firstItem="fSZ-75-B01" firstAttribute="leading" secondItem="DPa-rj-kL0" secondAttribute="leading" constant="107" id="dBM-Qy-5SR"/>
+                            <constraint firstItem="dIs-HI-Ajo" firstAttribute="leading" secondItem="DPa-rj-kL0" secondAttribute="leading" constant="24" id="j93-5M-1Rn"/>
+                            <constraint firstItem="zgH-f4-vbw" firstAttribute="top" secondItem="dIs-HI-Ajo" secondAttribute="bottom" constant="16" id="mtH-Cb-4aF"/>
+                            <constraint firstItem="dIs-HI-Ajo" firstAttribute="top" secondItem="fSZ-75-B01" secondAttribute="bottom" constant="24" id="ofC-o1-21x"/>
+                            <constraint firstItem="DPa-rj-kL0" firstAttribute="trailing" secondItem="zgH-f4-vbw" secondAttribute="trailing" constant="24" id="utR-FR-98Y"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="tHE-ZW-nSC"/>
                 </viewController>
@@ -569,6 +599,7 @@
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="user_avatar" width="306" height="306"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
