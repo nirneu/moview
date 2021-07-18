@@ -96,18 +96,20 @@ class ModelFirebase {
         }
     }
     
-    func add(review:Review, callback:@escaping (String)->Void){
+    func generateReviewId()->String {
+        return Firestore.firestore().collection(reviewsCollection).document().documentID
+    }
+    
+    func add(review:Review, callback:@escaping (Bool)->Void){
         let db = Firestore.firestore()
-        var ref: DocumentReference? = nil
-        
-        ref = db.collection(reviewsCollection).addDocument(data: review.toJson(withId: "")) { err in
+        db.collection(reviewsCollection).document(review.id!).setData(review.toJson()) { err in
             if let err = err {
                 print("Error writing document: \(err)")
-                callback("")
+                callback(false)
             }
             else {
                 print("Document created successfully!")
-                callback(ref!.documentID)
+                callback(true)
             }
         }
     }
@@ -128,7 +130,7 @@ class ModelFirebase {
     
     func update(review: Review, callback:@escaping (Bool)->Void) {
         let db = Firestore.firestore()
-        db.collection(reviewsCollection).document(review.id!).setData(review.toJson(withId: "true")) { err in
+        db.collection(reviewsCollection).document(review.id!).setData(review.toJson()) { err in
             if let err = err {
                 print("Error updating document: \(err)")
                 callback(false)

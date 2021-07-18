@@ -62,12 +62,16 @@ class Model {
         }
     }
     
-    func add(review:Review, callback:@escaping (String)->Void){
-        modelFirebase.add(review: review) { docID in
-            if (docID != "") {
+    func generateReviewId()->String {
+        return modelFirebase.generateReviewId()
+    }
+    
+    func add(review:Review, callback:@escaping (Bool)->Void){
+        modelFirebase.add(review: review) { isAdded in
+            if (isAdded) {
                 self.notificationReviewsList.post()
             }
-            callback(docID)
+            callback(isAdded)
         }
     }
     
@@ -97,8 +101,8 @@ class Model {
         modelFirebase.saveImage(image: image, path: "profiles", filename: userId, callback: callback)
     }
     
-    func saveReviewImage(image: UIImage, userId: String, callback:@escaping (String)->Void) {
-        modelFirebase.saveImage(image: image, path: "movies", filename: userId, callback: callback)
+    func saveReviewImage(image: UIImage, reviewId: String, callback:@escaping (String)->Void) {
+        modelFirebase.saveImage(image: image, path: "movies", filename: reviewId, callback: callback)
     }
     
     func addUser(user: User, callback:@escaping (Bool)->Void) {

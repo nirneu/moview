@@ -13,9 +13,10 @@ import Firebase
 
 @objc(Review)
 public class Review: NSManagedObject {
-    static func createReview(movieName: String, releaseYear: Int64, genre: String, imageUrl: String, rating: Int64, review: String, userId:String , lastUpdated: Int64)-> Review {
+    static func createReview(id:String, movieName: String, releaseYear: Int64, genre: String, imageUrl: String, rating: Int64, review: String, userId:String , lastUpdated: Int64)-> Review {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let currReview = Review(context: context)
+        currReview.id = id
         currReview.movieName = movieName
         currReview.releaseYear = releaseYear
         currReview.genre = genre
@@ -53,7 +54,7 @@ public class Review: NSManagedObject {
         return review
     }
     
-    func toJson(withId: String)->[String:Any] {
+    func toJson()->[String:Any] {
         var json = [String:Any]()
         json["id"] = id!
         json["movieName"] = movieName!
@@ -62,6 +63,7 @@ public class Review: NSManagedObject {
         json["review"] = review!
         json["rating"] = rating
         json["userId"] = userId!
+        json["imageUrl"] = imageUrl!
         json["lastUpdated"] = FieldValue.serverTimestamp()
         json["wasDeleted"] = wasDeleted
         

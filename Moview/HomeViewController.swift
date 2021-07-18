@@ -42,9 +42,6 @@ class HomeViewController: UIViewController {
         refreshControl.beginRefreshing()
         Model.instance.getAllUsers() { users in
             Model.instance.getAllReviews { reviews in
-                for review in reviews {
-                    print("\(review.id)")
-                }
                 self.data = reviews
                 self.reviewsTableView.reloadData()
                 self.refreshControl.endRefreshing()

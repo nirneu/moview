@@ -66,20 +66,14 @@ class NewReviewViewController: UIViewController, UIImagePickerControllerDelegate
         if (isFormValid()) {
             loading.startAnimating()
             
-            let review = Review.createReview(movieName: movieName.text!, releaseYear: Int64(year.text!)!, genre: genre.text!, imageUrl: "", rating: Int64(rating.text!)!, review: reviewText.text!, userId: Auth.auth().currentUser!.uid, lastUpdated: 0)
-            
-            Model.instance.add(review: review) { docID in
-                if docID != "" {
-                    review.id = docID
-                    Model.instance.saveReviewImage(image: self.selectedImageVar!, userId: docID) { imageUrl in
-                        if imageUrl != "" {
-                            Model.instance.update(review: review) { isUpdated in
-                                if isUpdated {
-                                    self.navigationController?.popViewController(animated: true)
-                                } else {
-                                    self.displayAlert(message: "Failed to create review")
-                                }
-                            }
+            let reviewId = Model.instance.generateReviewId()
+            Model.instance.saveReviewImage(image: self.selectedImageVar!, reviewId: reviewId) { imageUrl in
+                if imageUrl != "" {
+                    let review = Review.createReview(id: reviewId, movieName: self.movieName.text!, releaseYear: Int64(self.year.text!)!, genre: self.genre.text!, imageUrl: imageUrl, rating: Int64(self.rating.text!)!, review: self.reviewText.text!, userId: Auth.auth().currentUser!.uid, lastUpdated: 0)
+                    
+                    Model.instance.add(review: review) { isAdded in
+                        if isAdded {
+                            self.navigationController?.popViewController(animated: true)
                         } else {
                             self.displayAlert(message: "Failed to create review")
                         }
