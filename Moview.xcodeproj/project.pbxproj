@@ -10,6 +10,9 @@
 		2D27C8395DCA1A991AF79116 /* Pods_MoviewTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4517ACAEC23DC46AE6932023 /* Pods_MoviewTests.framework */; };
 		425D62FE10A5162CBA77B9A4 /* Pods_Moview_MoviewUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBEDFEFD4A3F9A9FA3C25260 /* Pods_Moview_MoviewUITests.framework */; };
 		841A5BF726A4191800AAABC6 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841A5BF626A4191800AAABC6 /* ProfileViewController.swift */; };
+		841A5BFC26A46D5600AAABC6 /* ProfileMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841A5BFB26A46D5600AAABC6 /* ProfileMenuTableViewController.swift */; };
+		841A5C0126A4C54900AAABC6 /* MyReviewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841A5C0026A4C54900AAABC6 /* MyReviewsViewController.swift */; };
+		841A5C0626A4CB0C00AAABC6 /* MyReviewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841A5C0526A4CB0C00AAABC6 /* MyReviewsTableViewCell.swift */; };
 		8425922B269E1DFF000D5CE0 /* NewReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8425922A269E1DFF000D5CE0 /* NewReviewViewController.swift */; };
 		8425924226A0AB64000D5CE0 /* Review+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8425924126A0AB64000D5CE0 /* Review+CoreDataClass.swift */; };
 		842CDEB12693417100318F0A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842CDEB02693417100318F0A /* HomeViewController.swift */; };
@@ -60,6 +63,9 @@
 		5A4FD8427A972FEB744A3C65 /* Pods-MoviewTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoviewTests.release.xcconfig"; path = "Target Support Files/Pods-MoviewTests/Pods-MoviewTests.release.xcconfig"; sourceTree = "<group>"; };
 		5D4929AA33B0DCEAA8B85BAB /* Pods-Moview-MoviewUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moview-MoviewUITests.debug.xcconfig"; path = "Target Support Files/Pods-Moview-MoviewUITests/Pods-Moview-MoviewUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		841A5BF626A4191800AAABC6 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		841A5BFB26A46D5600AAABC6 /* ProfileMenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMenuTableViewController.swift; sourceTree = "<group>"; };
+		841A5C0026A4C54900AAABC6 /* MyReviewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReviewsViewController.swift; sourceTree = "<group>"; };
+		841A5C0526A4CB0C00AAABC6 /* MyReviewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReviewsTableViewCell.swift; sourceTree = "<group>"; };
 		8425922A269E1DFF000D5CE0 /* NewReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReviewViewController.swift; sourceTree = "<group>"; };
 		8425924126A0AB64000D5CE0 /* Review+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Review+CoreDataClass.swift"; sourceTree = "<group>"; };
 		842CDEB02693417100318F0A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -189,6 +195,9 @@
 				842CDED02698C18000318F0A /* ReviewsTableViewCell.swift */,
 				8425922A269E1DFF000D5CE0 /* NewReviewViewController.swift */,
 				841A5BF626A4191800AAABC6 /* ProfileViewController.swift */,
+				841A5BFB26A46D5600AAABC6 /* ProfileMenuTableViewController.swift */,
+				841A5C0026A4C54900AAABC6 /* MyReviewsViewController.swift */,
+				841A5C0526A4CB0C00AAABC6 /* MyReviewsTableViewCell.swift */,
 			);
 			path = Moview;
 			sourceTree = "<group>";
@@ -466,7 +475,10 @@
 				84FEA8FB2690BE5100730937 /* RegisterViewController.swift in Sources */,
 				842CDED12698C18000318F0A /* ReviewsTableViewCell.swift in Sources */,
 				842CDF19269A054E00318F0A /* ReviewModel.xcdatamodeld in Sources */,
+				841A5BFC26A46D5600AAABC6 /* ProfileMenuTableViewController.swift in Sources */,
+				841A5C0126A4C54900AAABC6 /* MyReviewsViewController.swift in Sources */,
 				8425924226A0AB64000D5CE0 /* Review+CoreDataClass.swift in Sources */,
+				841A5C0626A4CB0C00AAABC6 /* MyReviewsTableViewCell.swift in Sources */,
 				841A5BF726A4191800AAABC6 /* ProfileViewController.swift in Sources */,
 				8436A3CD26A3650700528F43 /* Review+CoreDataProperties.swift in Sources */,
 				84C72C42269DA7AD00D24C4F /* User+CoreDataClass.swift in Sources */,

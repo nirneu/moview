@@ -13,6 +13,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var fullNameText: UILabel!
     @IBOutlet weak var emailText: UILabel!
+    var menuViewController: ProfileMenuTableViewController?
     
     @IBAction func logoutClicked(_ sender: Any) {
         let firebaseAuth = Auth.auth()
@@ -40,11 +41,20 @@ class ProfileViewController: UIViewController {
             self.emailText.text = Auth.auth().currentUser!.email
             self.profileImage.kf.setImage(with: URL(string: (user?.imageUrl)!), placeholder: UIImage(named: "user_avatar"))
         }
+        
+        menuViewController = (self.children[0] as? ProfileMenuTableViewController)!
+        menuViewController?.delegate = self
     }
     
     func displayAlert(message:String) {
         let alert = UIAlertController(title: "Alert", message: message, preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
+    }
+}
+
+extension ProfileViewController:  ProfileTableViewControllerDelegate {
+    func cellTapped(segue: MenuActionSegue) {
+        self.performSegue(withIdentifier: segue.rawValue, sender: self)
     }
 }
