@@ -10,29 +10,42 @@ import UIKit
 class HomeViewController: UIViewController {
 
     @IBOutlet weak var reviewsTableView: UITableView!
-    @IBOutlet weak var listScroller: UIActivityIndicatorView!
     @IBOutlet weak var newReviewBtn: UIBarButtonItem!
     
     var data = [Review]()
+    var refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let review = Review.createReview(id: "0", movieName: "Love is in the air", releaseYear: "2012", genre: "Drama", imageUrl: "", rating: "5", summary: "", review: "5", userName: "Max")
-//        Model.instance.add(review: review)
-//        let r = Model.instance.getReview(byId: "1")
-//        Model.instance.delete(review:r!)
-        listScroller.hidesWhenStopped = true
+        reviewsTableView.addSubview(refreshControl)
+        refreshControl.addTarget(self, action:#selector(refresh) , for: .valueChanged)
+        
+        reloadData()
+        Model.instance.notificationReviewsList.observe {
+            self.reloadData()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if (data.count == 0) {
-            listScroller.startAnimating()
-        }
-        Model.instance.getAllReviews { reviews in
-            self.data = reviews
-            self.reviewsTableView.reloadData()
-            self.listScroller.stopAnimating()
+//        if (data.count == 0) {
+//            listScroller.startAnimating()
+//        }
+
+    }
+    
+    @objc func refresh(_ sender: AnyObject) {
+        self.reloadData()
+    }
+    
+    func reloadData(){
+        refreshControl.beginRefreshing()
+        Model.instance.getAllUsers() { users in
+            Model.instance.getAllReviews { reviews in
+                self.data = reviews
+                self.reviewsTableView.reloadData()
+                self.refreshControl.endRefreshing()
+            }
         }
     }
 }
@@ -52,9 +65,13 @@ extension HomeViewController: UITableViewDataSource {
         
         let review = data[indexPath.row]
         cell.movieTitle.text = review.movieName
-        cell.releaseYear.text = review.releaseYear
+        cell.releaseYear.text = String(review.releaseYear)
         cell.genre.text = review.genre
-        cell.userName.text = review.userName
+//        cell.imageView
+        
+        if let user = Model.instance.getUser(byId: review.userId!) {
+            cell.userName.text = user.fullName
+        }
         
         return cell
     }

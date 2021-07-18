@@ -9,75 +9,100 @@ import Foundation
 import UIKit
 import CoreData
 
+class NotificationGeneral{
+    let name:String
+    init(_ name: String){
+        self.name = name
+    }
+    
+    func post(){
+        NotificationCenter.default.post(name: NSNotification.Name(name), object: self)
+    }
+
+    func observe(callback:@escaping ()->Void){
+        NotificationCenter.default.addObserver(forName: NSNotification.Name(name), object: self, queue: nil) { (notification) in
+            callback()
+        }
+    }
+}
+
 class Model {
     
     static let instance = Model()
     let modelFirebase = ModelFirebase()
     let usersLastUpdate = "UsersLastUpdateDate"
+    let reviewsLastUpdate = "ReviewsLastUpdateDate"
+    
+    public let notificationReviewsList = NotificationGeneral("notificationReviewsList")
     
     private init(){}
         
     func getAllReviews(callback:@escaping ([Review])->Void){
-        
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        let request = Review.fetchRequest() as NSFetchRequest<Review>
-        request.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
-        
-        DispatchQueue.global().async {
-            // second thread code
-            var data = [Review]()
-            do {
-                data = try context.fetch(request)
-            } catch {
+        var localLastUpdate = Int64(UserDefaults.standard.integer(forKey: reviewsLastUpdate))
+        modelFirebase.getAllReviews(lastUpdate: localLastUpdate) { (reviews) in
+            if reviews.count > 0 {
+                for review in reviews {
+                    if review.lastUpdated > localLastUpdate {
+                        localLastUpdate = review.lastUpdated
+                    }
+                }
+                
+                for review in reviews {
+                    if review.wasDeleted {
+                        review.delete()
+                    }
+                }
+                
+                reviews[0].save()
             }
             
-            DispatchQueue.main.async {
-                // code to execute on main thread
-                callback(data)
-            }
-        }
-    }
-    
-    func add(review:Review){
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        do {
-            try context.save()
-        } catch {
+            UserDefaults.standard.setValue(localLastUpdate, forKey: self.reviewsLastUpdate)
+            Review.getAll(callback: callback)
             
         }
     }
     
-    func delete(review:Review){
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        context.delete(review)
-        do {
-            try context.save()
-        } catch {
-            
+    func generateReviewId()->String {
+        return modelFirebase.generateReviewId()
+    }
+    
+    func add(review:Review, callback:@escaping (Bool)->Void){
+        modelFirebase.add(review: review) { isAdded in
+            if (isAdded) {
+                self.notificationReviewsList.post()
+            }
+            callback(isAdded)
+        }
+    }
+    
+    func delete(review:Review, callback:@escaping (Bool)->Void){
+        modelFirebase.delete(review: review) { isRemoved in
+            if isRemoved {
+                self.notificationReviewsList.post()
+            }
+            callback(isRemoved)
+        }
+    }
+    
+    func update(review:Review, callback:@escaping (Bool)->Void){
+        modelFirebase.update(review: review) { isUpdated in
+            if (isUpdated) {
+                self.notificationReviewsList.post()
+            }
+            callback(isUpdated)
         }
     }
     
     func getReview(byId:String)->Review?{
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        let request = Review.fetchRequest() as NSFetchRequest<Review>
-        request.predicate = NSPredicate(format: "id == \(byId)")
-        do {
-            let reviews = try context.fetch(request)
-            if reviews.count > 0 {
-                return reviews[0]
-            }
-        } catch {
-            
-        }
-        return nil
+        return Review.getReview(byId: byId)
     }
     
     func saveProfileImage(image: UIImage, userId: String, callback:@escaping (String)->Void) {
         modelFirebase.saveImage(image: image, path: "profiles", filename: userId, callback: callback)
     }
     
-    func saveReviewImage(image: UIImage, userId: String, callback:@escaping (String)->Void) {
-        modelFirebase.saveImage(image: image, path: "movies", filename: userId, callback: callback)
+    func saveReviewImage(image: UIImage, reviewId: String, callback:@escaping (String)->Void) {
+        modelFirebase.saveImage(image: image, path: "movies", filename: reviewId, callback: callback)
     }
     
     func addUser(user: User, callback:@escaping (Bool)->Void) {
