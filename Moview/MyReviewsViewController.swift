@@ -19,11 +19,24 @@ class MyReviewsViewController: UIViewController {
         myReviewsTableView.addSubview(refreshControl)
         refreshControl.addTarget(self, action:#selector(refresh) , for: .valueChanged)
         
+        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongPress))
+        longPressGesture.minimumPressDuration = 1.0
+        self.view.addGestureRecognizer(longPressGesture)
+        
         reloadData()
     }
     
     @objc func refresh(_ sender: AnyObject) {
         self.reloadData()
+    }
+    
+    @objc func handleLongPress(_ gestureRecognizer: UILongPressGestureRecognizer){
+        if gestureRecognizer.state == .began {
+            let touchPoint = gestureRecognizer.location(in: self.myReviewsTableView)
+            if let indexPath = myReviewsTableView.indexPathForRow(at: touchPoint) {
+                print(indexPath.row)
+            }
+        }
     }
     
     func reloadData(){
