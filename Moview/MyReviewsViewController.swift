@@ -7,6 +7,7 @@
 
 import UIKit
 import Kingfisher
+import Firebase
 
 class MyReviewsViewController: UIViewController {
     @IBOutlet weak var myReviewsTableView: UITableView!
@@ -27,8 +28,7 @@ class MyReviewsViewController: UIViewController {
     
     func reloadData(){
         refreshControl.beginRefreshing()
-        //TODO: get reviews by user id
-        Model.instance.getAllReviews { reviews in
+        Model.instance.getReviews(byUserId: Auth.auth().currentUser!.uid) { reviews in
             self.data = reviews
             self.myReviewsTableView.reloadData()
             self.refreshControl.endRefreshing()

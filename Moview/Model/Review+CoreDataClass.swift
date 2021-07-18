@@ -127,4 +127,25 @@ extension Review {
         }
         return nil
     }
+    
+    static func getReviews(byUserId:String, callback:@escaping ([Review])->Void){
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let request = Review.fetchRequest() as NSFetchRequest<Review>
+        request.sortDescriptors = [NSSortDescriptor(key: "lastUpdated", ascending: false)]
+        request.predicate = NSPredicate(format: "userId == %@", byUserId)
+        
+        DispatchQueue.global().async {
+            // second thread code
+            var data = [Review]()
+            do {
+                data = try context.fetch(request)
+            } catch {
+            }
+            
+            DispatchQueue.main.async {
+                // code to execute on main thread
+                callback(data)
+            }
+        }
+    }
 }

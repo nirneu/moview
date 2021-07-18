@@ -97,6 +97,12 @@ class Model {
         return Review.getReview(byId: byId)
     }
     
+    func getReviews(byUserId:String, callback:@escaping ([Review])->Void){
+        Model.instance.getAllReviews { reviews in
+            return Review.getReviews(byUserId: byUserId, callback: callback)
+        }
+    }
+    
     func saveProfileImage(image: UIImage, userId: String, callback:@escaping (String)->Void) {
         modelFirebase.saveImage(image: image, path: "profiles", filename: userId, callback: callback)
     }
