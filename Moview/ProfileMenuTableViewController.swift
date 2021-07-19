@@ -7,8 +7,8 @@
 
 import UIKit
 
-enum MenuActionSegue: String {
-    case editName = "editName", changePass = "changePass", toMyReviewsSegue = "toMyReviewsSegue"
+enum MenuAction: String {
+    case editName, changePass, myReviews
 }
 
 class ProfileMenuTableViewController: UITableViewController {
@@ -20,28 +20,28 @@ class ProfileMenuTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
           tableView.deselectRow(at: indexPath, animated: true)
-        var action: MenuActionSegue = MenuActionSegue.editName
+        var action: MenuAction?
         
         // edit name, email
         if (indexPath.section == 0 && indexPath.row == 0) {
-            action = MenuActionSegue.editName
+            action = MenuAction.editName
         }
         // change password
         else if (indexPath.section == 0 && indexPath.row == 1) {
-            action = MenuActionSegue.changePass
+            action = MenuAction.changePass
         }
         // my reviews
         else if (indexPath.section == 1 && indexPath.row == 0) {
-            action = MenuActionSegue.toMyReviewsSegue
+            action = MenuAction.myReviews
         }
         
         if let delegate = delegate {
-            delegate.cellTapped(segue: action)
+            delegate.cellTapped(action: action!)
             
         }
       }
 }
 
 protocol ProfileTableViewControllerDelegate : AnyObject {
-    func cellTapped(segue: MenuActionSegue)
+    func cellTapped(action: MenuAction)
 }

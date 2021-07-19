@@ -54,7 +54,50 @@ class ProfileViewController: UIViewController {
 }
 
 extension ProfileViewController:  ProfileTableViewControllerDelegate {
-    func cellTapped(segue: MenuActionSegue) {
-        self.performSegue(withIdentifier: segue.rawValue, sender: self)
+    func cellTapped(action: MenuAction) {
+        switch action {
+        case MenuAction.editName:
+            // TODO: change user name
+            print(action.rawValue)
+            break
+        case MenuAction.changePass:
+            changePass()
+            break
+        case MenuAction.myReviews:
+            self.performSegue(withIdentifier: "toMyReviewsSegue", sender: self)
+            break
+        }
+    }
+    
+    func changePass() {
+        let alert = UIAlertController(title: "Change Password", message: "You must fill all fields", preferredStyle: UIAlertController.Style.alert)
+        alert.addTextField { (textField:UITextField) in
+            textField.placeholder = "Current Password*"
+        }
+        alert.addTextField { (textField:UITextField) in
+            textField.placeholder = "New Password*"
+        }
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Change", style: .default, handler: { (action:UIAlertAction) in
+            if alert.textFields?[0].text! != "" && alert.textFields?[1].text! != "" {
+                let user = Auth.auth().currentUser
+                let cred = EmailAuthProvider.credential(withEmail: (user?.email)!, password: (alert.textFields?[0].text!)!)
+                user?.reauthenticate(with: cred) { result, error in
+                    if let error = error {
+                        self.displayAlert(message: "Error changing password, please try again later")
+                    } else {
+                        user?.updatePassword(to: (alert.textFields?[1].text!)!) { error in
+                            if let error = error {
+                                self.displayAlert(message: "Error changing password, please try again later")
+                            }
+                        }
+                    }
+                }
+            }
+            else {
+                self.displayAlert(message: "You must fill all fields")
+            }
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
 }

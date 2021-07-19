@@ -56,6 +56,11 @@ class EditReviewViewController: UIViewController, UIImagePickerControllerDelegat
         movieImage.isUserInteractionEnabled = true
         movieImage.addGestureRecognizer(tapGestureRecognizer)
         
+        ReviewText!.layer.borderWidth = 0.5
+        ReviewText!.layer.borderColor = UIColor.gray.withAlphaComponent(0.5).cgColor
+        ReviewText!.layer.cornerRadius = 5
+        ReviewText!.clipsToBounds = true
+        
         if let selectedReview = Model.instance.getReview(byId: reviewId) {
             review = selectedReview
             movieNameText.text = review?.movieName!
