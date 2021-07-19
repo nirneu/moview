@@ -41,8 +41,7 @@ class MyReviewsViewController: UIViewController {
                 let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
                 alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
                 alert.addAction(UIAlertAction(title: "Edit", style: .default) { _ in
-                    // TODO: edit review
-                    print("edit")
+                    self.performSegue(withIdentifier: "toEditReviewSegue", sender: indexPath.row)
                 })
                 alert.addAction(UIAlertAction(title: "Delete", style: .destructive) { _ in
                     self.displayDeleteAlert(review: self.data[indexPath.row])
@@ -82,6 +81,13 @@ class MyReviewsViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toEditReviewSegue" {
+            let editVC = segue.destination as! EditReviewViewController
+            editVC.reviewId = data[sender as! Int].id!
+        }
+    }
 }
 
 extension MyReviewsViewController: UITableViewDataSource {
@@ -108,6 +114,7 @@ extension MyReviewsViewController: UITableViewDataSource {
 
 extension MyReviewsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         
     }
 }
