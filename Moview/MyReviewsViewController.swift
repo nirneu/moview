@@ -24,6 +24,9 @@ class MyReviewsViewController: UIViewController {
         self.view.addGestureRecognizer(longPressGesture)
         
         reloadData()
+        Model.instance.notificationReviewsList.observe {
+            self.reloadData()
+        }
     }
     
     @objc func refresh(_ sender: AnyObject) {
@@ -35,30 +38,15 @@ class MyReviewsViewController: UIViewController {
             let touchPoint = gestureRecognizer.location(in: self.myReviewsTableView)
             if let indexPath = myReviewsTableView.indexPathForRow(at: touchPoint) {
                 print(indexPath.row)
-                let alert = UIAlertController(
-                    title: nil,
-                    message: nil,
-                    preferredStyle: .actionSheet
-                )
-
-                alert.addAction(
-                    .init(title: "Edit", style: .default) { _ in
-                        // TODO: edit review
-                        print("edit")
-                    }
-                )
-
-                alert.addAction(
-                    .init(title: "Delete", style: .destructive) { _ in
-                        // TODO: delete review
-                        print("delete")
-                    }
-                )
-                
-                alert.addAction(
-                    .init(title: "Cancel", style: .cancel) { _ in
+                let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                alert.addAction(UIAlertAction(title: "Edit", style: .default) { _ in
+                    // TODO: edit review
+                    print("edit")
                 })
-
+                alert.addAction(UIAlertAction(title: "Delete", style: .destructive) { _ in
+                    self.displayDeleteAlert(review: self.data[indexPath.row])
+                })
                 present(alert, animated: true)
             }
         }
@@ -71,6 +59,28 @@ class MyReviewsViewController: UIViewController {
             self.myReviewsTableView.reloadData()
             self.refreshControl.endRefreshing()
         }
+    }
+    
+    func displayDeleteAlert(review: Review) {
+        let alert = UIAlertController(title: "Alert", message: "Are you sure you want to delete this review?", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Delete", style: .destructive) { _ in
+            Model.instance.delete(review: review) { isRemoved in
+                if isRemoved {
+                    self.reloadData()
+                }
+                else {
+                    self.displayAlert(message: "Error deleting review")
+                }
+            }
+        })
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func displayAlert(message:String) {
+        let alert = UIAlertController(title: "Alert", message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 }
 

@@ -47,13 +47,18 @@ class Model {
                     }
                 }
                 
+                var ids = [String]()
                 for review in reviews {
                     if review.wasDeleted {
-                        review.delete()
+                        ids.append(review.id!)
                     }
                 }
                 
                 reviews[0].save()
+                
+                for id in ids {
+                    Model.instance.getReview(byId: id)?.delete()
+                }
             }
             
             UserDefaults.standard.setValue(localLastUpdate, forKey: self.reviewsLastUpdate)
@@ -76,7 +81,8 @@ class Model {
     }
     
     func delete(review:Review, callback:@escaping (Bool)->Void){
-        modelFirebase.delete(review: review) { isRemoved in
+        review.wasDeleted = true
+        modelFirebase.add(review: review) { isRemoved in
             if isRemoved {
                 self.notificationReviewsList.post()
             }
@@ -85,7 +91,7 @@ class Model {
     }
     
     func update(review:Review, callback:@escaping (Bool)->Void){
-        modelFirebase.update(review: review) { isUpdated in
+        modelFirebase.add(review: review) { isUpdated in
             if (isUpdated) {
                 self.notificationReviewsList.post()
             }
@@ -131,13 +137,18 @@ class Model {
                     }
                 }
                 
+                var ids = [String]()
                 for user in users {
                     if user.wasDeleted {
-                        user.delete()
+                        ids.append(user.id!)
                     }
                 }
                 
                 users[0].save()
+                
+                for id in ids {
+                    Model.instance.getUser(byId: id)?.delete()
+                }
             }
             
             UserDefaults.standard.setValue(localLastUpdate, forKey: self.usersLastUpdate)

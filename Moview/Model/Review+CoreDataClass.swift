@@ -99,7 +99,6 @@ extension Review {
         do {
             try context.save()
         } catch {
-            
         }
     }
     
@@ -116,7 +115,7 @@ extension Review {
     static func getReview(byId:String)->Review?{
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let request = Review.fetchRequest() as NSFetchRequest<Review>
-        request.predicate = NSPredicate(format: "id == \(byId)")
+        request.predicate = NSPredicate(format: "id == %@", byId)
         do {
             let reviews = try context.fetch(request)
             if reviews.count > 0 {
