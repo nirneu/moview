@@ -443,7 +443,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sHb-nH-0zU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-929" y="1205"/>
+            <point key="canvasLocation" x="-1677" y="1654"/>
         </scene>
         <!--My Reviews-->
         <scene sceneID="raW-hU-D7G">
@@ -528,14 +528,112 @@
                             <constraint firstItem="Q7x-O2-KbN" firstAttribute="leading" secondItem="Epl-bZ-dpe" secondAttribute="leading" id="zgC-Va-2as"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="My Reviews" id="kMy-R8-kFb"/>
+                    <navigationItem key="navigationItem" title="My Reviews" id="kMy-R8-kFb">
+                        <barButtonItem key="backBarButtonItem" title="Cancel" id="ZjF-id-Hf2"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="myReviewsTableView" destination="Q7x-O2-KbN" id="jlE-IB-NCw"/>
+                        <segue destination="ZOE-eb-iRo" kind="show" id="PLQ-d7-eZD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bGz-Rr-jyf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-42.028985507246382" y="1113.6160714285713"/>
+            <point key="canvasLocation" x="-674" y="867"/>
+        </scene>
+        <!--Edit Review-->
+        <scene sceneID="Wvc-0M-rqM">
+            <objects>
+                <viewController id="ZOE-eb-iRo" customClass="EditReviewViewController" customModule="Moview" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Pap-j4-xEH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Default Avatar" translatesAutoresizingMaskIntoConstraints="NO" id="3uC-6j-gEa">
+                                <rect key="frame" x="123" y="80" width="168" height="245"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="168" id="KqV-Ob-Wfd"/>
+                                    <constraint firstAttribute="height" constant="245" id="PEc-tY-cQJ"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Movie Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HCr-RX-nHF">
+                                <rect key="frame" x="24" y="341" width="366" height="38.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Release Year" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pR6-xY-Djf">
+                                <rect key="frame" x="24" y="387.5" width="366" height="38.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Genre" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E0b-HW-4Nc">
+                                <rect key="frame" x="24" y="434" width="366" height="38.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Rating" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H48-qs-amd">
+                                <rect key="frame" x="24" y="480.5" width="366" height="38.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Review" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ub8-JA-Ulb">
+                                <rect key="frame" x="24" y="527" width="366" height="132.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="jYQ-F0-mdi"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="HCr-RX-nHF" firstAttribute="leading" secondItem="jYQ-F0-mdi" secondAttribute="leading" constant="24" id="3vc-3N-VE7"/>
+                            <constraint firstItem="jYQ-F0-mdi" firstAttribute="bottom" secondItem="ub8-JA-Ulb" secondAttribute="bottom" constant="99.5" id="Bvc-ry-zNM"/>
+                            <constraint firstItem="E0b-HW-4Nc" firstAttribute="top" secondItem="pR6-xY-Djf" secondAttribute="bottom" constant="8" id="EiI-ah-IGa"/>
+                            <constraint firstItem="pR6-xY-Djf" firstAttribute="top" secondItem="HCr-RX-nHF" secondAttribute="bottom" constant="8" id="H1Y-D5-I06"/>
+                            <constraint firstItem="jYQ-F0-mdi" firstAttribute="trailing" secondItem="H48-qs-amd" secondAttribute="trailing" constant="24" id="HAG-hR-Zun"/>
+                            <constraint firstItem="ub8-JA-Ulb" firstAttribute="top" secondItem="H48-qs-amd" secondAttribute="bottom" constant="8" id="M6c-MH-Tcn"/>
+                            <constraint firstItem="3uC-6j-gEa" firstAttribute="leading" secondItem="jYQ-F0-mdi" secondAttribute="leading" constant="123" id="OcI-J8-Dkt"/>
+                            <constraint firstItem="jYQ-F0-mdi" firstAttribute="trailing" secondItem="E0b-HW-4Nc" secondAttribute="trailing" constant="24" id="Pfl-kw-aaU"/>
+                            <constraint firstItem="pR6-xY-Djf" firstAttribute="leading" secondItem="jYQ-F0-mdi" secondAttribute="leading" constant="24" id="QiV-Kc-5dL"/>
+                            <constraint firstItem="ub8-JA-Ulb" firstAttribute="leading" secondItem="jYQ-F0-mdi" secondAttribute="leading" constant="24" id="Ur5-rA-XCO"/>
+                            <constraint firstItem="jYQ-F0-mdi" firstAttribute="trailing" secondItem="HCr-RX-nHF" secondAttribute="trailing" constant="24" id="dGT-ae-E24"/>
+                            <constraint firstItem="E0b-HW-4Nc" firstAttribute="leading" secondItem="jYQ-F0-mdi" secondAttribute="leading" constant="24" id="dOR-0h-jtA"/>
+                            <constraint firstItem="HCr-RX-nHF" firstAttribute="top" secondItem="3uC-6j-gEa" secondAttribute="bottom" constant="16" id="eKo-jM-rne"/>
+                            <constraint firstItem="3uC-6j-gEa" firstAttribute="top" secondItem="jYQ-F0-mdi" secondAttribute="top" constant="24" id="h4Z-dw-vVf"/>
+                            <constraint firstItem="jYQ-F0-mdi" firstAttribute="trailing" secondItem="3uC-6j-gEa" secondAttribute="trailing" constant="123" id="pV3-Pj-wl5"/>
+                            <constraint firstItem="H48-qs-amd" firstAttribute="leading" secondItem="jYQ-F0-mdi" secondAttribute="leading" constant="24" id="tMB-NW-dUF"/>
+                            <constraint firstItem="H48-qs-amd" firstAttribute="top" secondItem="E0b-HW-4Nc" secondAttribute="bottom" constant="8" id="tMY-08-qfB"/>
+                            <constraint firstItem="jYQ-F0-mdi" firstAttribute="trailing" secondItem="pR6-xY-Djf" secondAttribute="trailing" constant="24" id="xSz-WE-Y3u"/>
+                            <constraint firstItem="jYQ-F0-mdi" firstAttribute="trailing" secondItem="ub8-JA-Ulb" secondAttribute="trailing" constant="24" id="xmK-6S-sbN"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Edit Review" id="Zxz-Vg-SGX">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="ycR-vI-zxG">
+                            <connections>
+                                <action selector="saveClicked:" destination="ZOE-eb-iRo" id="b7s-30-b9f"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="ReviewText" destination="ub8-JA-Ulb" id="9vG-aX-Djv"/>
+                        <outlet property="genreText" destination="E0b-HW-4Nc" id="Y7z-8I-Q9Y"/>
+                        <outlet property="movieImage" destination="3uC-6j-gEa" id="bM7-ea-8Bd"/>
+                        <outlet property="movieNameText" destination="HCr-RX-nHF" id="SjO-wc-7pb"/>
+                        <outlet property="ratingText" destination="H48-qs-amd" id="XTb-Iy-jCa"/>
+                        <outlet property="releaseYearText" destination="pR6-xY-Djf" id="xi4-3P-wzt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="79Z-0W-kCZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="321.73913043478262" y="866.51785714285711"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="I8p-4e-bVD">

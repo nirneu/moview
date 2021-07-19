@@ -22,6 +22,7 @@
 		8436A3CD26A3650700528F43 /* Review+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8436A3CC26A3650600528F43 /* Review+CoreDataProperties.swift */; };
 		847D39A9268F6A74005DE603 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 847D39A8268F6A74005DE603 /* GoogleService-Info.plist */; };
 		849CB07D26A069D500991076 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849CB07C26A069D500991076 /* User+CoreDataProperties.swift */; };
+		84AE3CFF26A5F8B50021F2F7 /* EditReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AE3CFE26A5F8B50021F2F7 /* EditReviewViewController.swift */; };
 		84B2AFC8268F553200319818 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B2AFC7268F553200319818 /* AppDelegate.swift */; };
 		84B2AFCA268F553200319818 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B2AFC9268F553200319818 /* SceneDelegate.swift */; };
 		84B2AFCC268F553200319818 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B2AFCB268F553200319818 /* ViewController.swift */; };
@@ -75,6 +76,7 @@
 		8436A3CC26A3650600528F43 /* Review+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Review+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		847D39A8268F6A74005DE603 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		849CB07C26A069D500991076 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		84AE3CFE26A5F8B50021F2F7 /* EditReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditReviewViewController.swift; sourceTree = "<group>"; };
 		84B2AFC4268F553200319818 /* Moview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moview.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B2AFC7268F553200319818 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84B2AFC9268F553200319818 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 				841A5BFB26A46D5600AAABC6 /* ProfileMenuTableViewController.swift */,
 				841A5C0026A4C54900AAABC6 /* MyReviewsViewController.swift */,
 				841A5C0526A4CB0C00AAABC6 /* MyReviewsTableViewCell.swift */,
+				84AE3CFE26A5F8B50021F2F7 /* EditReviewViewController.swift */,
 			);
 			path = Moview;
 			sourceTree = "<group>";
@@ -485,6 +488,7 @@
 				849CB07D26A069D500991076 /* User+CoreDataProperties.swift in Sources */,
 				84B2AFC8268F553200319818 /* AppDelegate.swift in Sources */,
 				842CDEC42693539100318F0A /* Model.swift in Sources */,
+				84AE3CFF26A5F8B50021F2F7 /* EditReviewViewController.swift in Sources */,
 				84B2AFCA268F553200319818 /* SceneDelegate.swift in Sources */,
 				84C72C36269D9D0200D24C4F /* ModelFirebase.swift in Sources */,
 				842CDEB12693417100318F0A /* HomeViewController.swift in Sources */,
