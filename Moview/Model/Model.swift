@@ -47,13 +47,18 @@ class Model {
                     }
                 }
                 
+                var ids = [String]()
                 for review in reviews {
                     if review.wasDeleted {
-                        review.delete()
+                        ids.append(review.id!)
                     }
                 }
                 
                 reviews[0].save()
+                
+                for id in ids {
+                    Model.instance.getReview(byId: id)?.delete()
+                }
             }
             
             UserDefaults.standard.setValue(localLastUpdate, forKey: self.reviewsLastUpdate)
@@ -76,7 +81,8 @@ class Model {
     }
     
     func delete(review:Review, callback:@escaping (Bool)->Void){
-        modelFirebase.delete(review: review) { isRemoved in
+        review.wasDeleted = true
+        modelFirebase.add(review: review) { isRemoved in
             if isRemoved {
                 self.notificationReviewsList.post()
             }
@@ -85,7 +91,7 @@ class Model {
     }
     
     func update(review:Review, callback:@escaping (Bool)->Void){
-        modelFirebase.update(review: review) { isUpdated in
+        modelFirebase.add(review: review) { isUpdated in
             if (isUpdated) {
                 self.notificationReviewsList.post()
             }
@@ -97,6 +103,12 @@ class Model {
         return Review.getReview(byId: byId)
     }
     
+    func getReviews(byUserId:String, callback:@escaping ([Review])->Void){
+        Model.instance.getAllReviews { reviews in
+            return Review.getReviews(byUserId: byUserId, callback: callback)
+        }
+    }
+    
     func saveProfileImage(image: UIImage, userId: String, callback:@escaping (String)->Void) {
         modelFirebase.saveImage(image: image, path: "profiles", filename: userId, callback: callback)
     }
@@ -106,13 +118,11 @@ class Model {
     }
     
     func addUser(user: User, callback:@escaping (Bool)->Void) {
-        modelFirebase.addUser(user: user) { isAdded in
-            if isAdded {
-                //self.notificationStudentList.post()
-            }
-            
-            callback(isAdded)
-        }
+        modelFirebase.addUser(user: user, callback: callback)
+    }
+    
+    func updateUser(user: User, callback:@escaping (Bool)->Void) {
+        modelFirebase.addUser(user: user, callback: callback)
     }
     
     func getAllUsers(callback:@escaping ([User])->Void){
@@ -125,13 +135,18 @@ class Model {
                     }
                 }
                 
+                var ids = [String]()
                 for user in users {
                     if user.wasDeleted {
-                        user.delete()
+                        ids.append(user.id!)
                     }
                 }
                 
                 users[0].save()
+                
+                for id in ids {
+                    Model.instance.getUser(byId: id)?.delete()
+                }
             }
             
             UserDefaults.standard.setValue(localLastUpdate, forKey: self.usersLastUpdate)

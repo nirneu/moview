@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		2D27C8395DCA1A991AF79116 /* Pods_MoviewTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4517ACAEC23DC46AE6932023 /* Pods_MoviewTests.framework */; };
 		425D62FE10A5162CBA77B9A4 /* Pods_Moview_MoviewUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBEDFEFD4A3F9A9FA3C25260 /* Pods_Moview_MoviewUITests.framework */; };
+		841A5BF726A4191800AAABC6 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841A5BF626A4191800AAABC6 /* ProfileViewController.swift */; };
+		841A5BFC26A46D5600AAABC6 /* ProfileMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841A5BFB26A46D5600AAABC6 /* ProfileMenuTableViewController.swift */; };
+		841A5C0126A4C54900AAABC6 /* MyReviewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841A5C0026A4C54900AAABC6 /* MyReviewsViewController.swift */; };
+		841A5C0626A4CB0C00AAABC6 /* MyReviewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841A5C0526A4CB0C00AAABC6 /* MyReviewsTableViewCell.swift */; };
 		8425922B269E1DFF000D5CE0 /* NewReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8425922A269E1DFF000D5CE0 /* NewReviewViewController.swift */; };
 		8425924226A0AB64000D5CE0 /* Review+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8425924126A0AB64000D5CE0 /* Review+CoreDataClass.swift */; };
 		842CDEB12693417100318F0A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842CDEB02693417100318F0A /* HomeViewController.swift */; };
@@ -18,6 +22,7 @@
 		8436A3CD26A3650700528F43 /* Review+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8436A3CC26A3650600528F43 /* Review+CoreDataProperties.swift */; };
 		847D39A9268F6A74005DE603 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 847D39A8268F6A74005DE603 /* GoogleService-Info.plist */; };
 		849CB07D26A069D500991076 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849CB07C26A069D500991076 /* User+CoreDataProperties.swift */; };
+		84AE3CFF26A5F8B50021F2F7 /* EditReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AE3CFE26A5F8B50021F2F7 /* EditReviewViewController.swift */; };
 		84B2AFC8268F553200319818 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B2AFC7268F553200319818 /* AppDelegate.swift */; };
 		84B2AFCA268F553200319818 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B2AFC9268F553200319818 /* SceneDelegate.swift */; };
 		84B2AFCC268F553200319818 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B2AFCB268F553200319818 /* ViewController.swift */; };
@@ -26,6 +31,7 @@
 		84B2AFD4268F553400319818 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84B2AFD2268F553400319818 /* LaunchScreen.storyboard */; };
 		84B2AFDF268F553400319818 /* MoviewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B2AFDE268F553400319818 /* MoviewTests.swift */; };
 		84B2AFEA268F553400319818 /* MoviewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B2AFE9268F553400319818 /* MoviewUITests.swift */; };
+		84B51C6726A6FAD300DC5C56 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B51C6626A6FAD300DC5C56 /* EditProfileViewController.swift */; };
 		84C72C36269D9D0200D24C4F /* ModelFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C72C35269D9D0200D24C4F /* ModelFirebase.swift */; };
 		84C72C42269DA7AD00D24C4F /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C72C41269DA7AD00D24C4F /* User+CoreDataClass.swift */; };
 		84DA78912690A142002012EB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DA78902690A142002012EB /* LoginViewController.swift */; };
@@ -58,6 +64,10 @@
 		4847D1AB7E31C103C5AC890B /* Pods-Moview-MoviewUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moview-MoviewUITests.release.xcconfig"; path = "Target Support Files/Pods-Moview-MoviewUITests/Pods-Moview-MoviewUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5A4FD8427A972FEB744A3C65 /* Pods-MoviewTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoviewTests.release.xcconfig"; path = "Target Support Files/Pods-MoviewTests/Pods-MoviewTests.release.xcconfig"; sourceTree = "<group>"; };
 		5D4929AA33B0DCEAA8B85BAB /* Pods-Moview-MoviewUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moview-MoviewUITests.debug.xcconfig"; path = "Target Support Files/Pods-Moview-MoviewUITests/Pods-Moview-MoviewUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		841A5BF626A4191800AAABC6 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		841A5BFB26A46D5600AAABC6 /* ProfileMenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMenuTableViewController.swift; sourceTree = "<group>"; };
+		841A5C0026A4C54900AAABC6 /* MyReviewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReviewsViewController.swift; sourceTree = "<group>"; };
+		841A5C0526A4CB0C00AAABC6 /* MyReviewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReviewsTableViewCell.swift; sourceTree = "<group>"; };
 		8425922A269E1DFF000D5CE0 /* NewReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReviewViewController.swift; sourceTree = "<group>"; };
 		8425924126A0AB64000D5CE0 /* Review+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Review+CoreDataClass.swift"; sourceTree = "<group>"; };
 		842CDEB02693417100318F0A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -67,6 +77,7 @@
 		8436A3CC26A3650600528F43 /* Review+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Review+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		847D39A8268F6A74005DE603 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		849CB07C26A069D500991076 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		84AE3CFE26A5F8B50021F2F7 /* EditReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditReviewViewController.swift; sourceTree = "<group>"; };
 		84B2AFC4268F553200319818 /* Moview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moview.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B2AFC7268F553200319818 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84B2AFC9268F553200319818 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +92,7 @@
 		84B2AFE5268F553400319818 /* MoviewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoviewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B2AFE9268F553400319818 /* MoviewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviewUITests.swift; sourceTree = "<group>"; };
 		84B2AFEB268F553400319818 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84B51C6626A6FAD300DC5C56 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		84C72C35269D9D0200D24C4F /* ModelFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelFirebase.swift; sourceTree = "<group>"; };
 		84C72C41269DA7AD00D24C4F /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
 		84DA78902690A142002012EB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -186,6 +198,12 @@
 				842CDEB02693417100318F0A /* HomeViewController.swift */,
 				842CDED02698C18000318F0A /* ReviewsTableViewCell.swift */,
 				8425922A269E1DFF000D5CE0 /* NewReviewViewController.swift */,
+				841A5BF626A4191800AAABC6 /* ProfileViewController.swift */,
+				841A5BFB26A46D5600AAABC6 /* ProfileMenuTableViewController.swift */,
+				841A5C0026A4C54900AAABC6 /* MyReviewsViewController.swift */,
+				841A5C0526A4CB0C00AAABC6 /* MyReviewsTableViewCell.swift */,
+				84AE3CFE26A5F8B50021F2F7 /* EditReviewViewController.swift */,
+				84B51C6626A6FAD300DC5C56 /* EditProfileViewController.swift */,
 			);
 			path = Moview;
 			sourceTree = "<group>";
@@ -457,18 +475,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84B51C6726A6FAD300DC5C56 /* EditProfileViewController.swift in Sources */,
 				84DA78912690A142002012EB /* LoginViewController.swift in Sources */,
 				84FEA8F62690BDD400730937 /* UIButtonExtension.swift in Sources */,
 				84B2AFCC268F553200319818 /* ViewController.swift in Sources */,
 				84FEA8FB2690BE5100730937 /* RegisterViewController.swift in Sources */,
 				842CDED12698C18000318F0A /* ReviewsTableViewCell.swift in Sources */,
 				842CDF19269A054E00318F0A /* ReviewModel.xcdatamodeld in Sources */,
+				841A5BFC26A46D5600AAABC6 /* ProfileMenuTableViewController.swift in Sources */,
+				841A5C0126A4C54900AAABC6 /* MyReviewsViewController.swift in Sources */,
 				8425924226A0AB64000D5CE0 /* Review+CoreDataClass.swift in Sources */,
+				841A5C0626A4CB0C00AAABC6 /* MyReviewsTableViewCell.swift in Sources */,
+				841A5BF726A4191800AAABC6 /* ProfileViewController.swift in Sources */,
 				8436A3CD26A3650700528F43 /* Review+CoreDataProperties.swift in Sources */,
 				84C72C42269DA7AD00D24C4F /* User+CoreDataClass.swift in Sources */,
 				849CB07D26A069D500991076 /* User+CoreDataProperties.swift in Sources */,
 				84B2AFC8268F553200319818 /* AppDelegate.swift in Sources */,
 				842CDEC42693539100318F0A /* Model.swift in Sources */,
+				84AE3CFF26A5F8B50021F2F7 /* EditReviewViewController.swift in Sources */,
 				84B2AFCA268F553200319818 /* SceneDelegate.swift in Sources */,
 				84C72C36269D9D0200D24C4F /* ModelFirebase.swift in Sources */,
 				842CDEB12693417100318F0A /* HomeViewController.swift in Sources */,

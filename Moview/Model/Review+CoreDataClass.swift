@@ -99,7 +99,6 @@ extension Review {
         do {
             try context.save()
         } catch {
-            
         }
     }
     
@@ -116,7 +115,7 @@ extension Review {
     static func getReview(byId:String)->Review?{
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let request = Review.fetchRequest() as NSFetchRequest<Review>
-        request.predicate = NSPredicate(format: "id == \(byId)")
+        request.predicate = NSPredicate(format: "id == %@", byId)
         do {
             let reviews = try context.fetch(request)
             if reviews.count > 0 {
@@ -126,5 +125,26 @@ extension Review {
             
         }
         return nil
+    }
+    
+    static func getReviews(byUserId:String, callback:@escaping ([Review])->Void){
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let request = Review.fetchRequest() as NSFetchRequest<Review>
+        request.sortDescriptors = [NSSortDescriptor(key: "lastUpdated", ascending: false)]
+        request.predicate = NSPredicate(format: "userId == %@", byUserId)
+        
+        DispatchQueue.global().async {
+            // second thread code
+            var data = [Review]()
+            do {
+                data = try context.fetch(request)
+            } catch {
+            }
+            
+            DispatchQueue.main.async {
+                // code to execute on main thread
+                callback(data)
+            }
+        }
     }
 }
