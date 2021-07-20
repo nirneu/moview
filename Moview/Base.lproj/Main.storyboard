@@ -591,6 +591,7 @@
                                             <outlet property="MovieNameText" destination="2dS-25-TIF" id="pBw-eZ-Myf"/>
                                             <outlet property="genreText" destination="z24-xp-5dk" id="Syy-Dh-FLt"/>
                                             <outlet property="movieImage" destination="f20-Z3-HMh" id="baj-4M-bdG"/>
+                                            <outlet property="ratingStars" destination="p6e-mg-PCh" id="xmd-QN-cgS"/>
                                             <outlet property="releaseYearText" destination="sJc-XJ-DgZ" id="6ie-TI-aGG"/>
                                         </connections>
                                     </tableViewCell>

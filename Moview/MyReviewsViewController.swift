@@ -106,6 +106,8 @@ extension MyReviewsViewController: UITableViewDataSource {
         cell.MovieNameText.text = review.movieName
         cell.releaseYearText.text = String(review.releaseYear)
         cell.genreText.text = review.genre
+        cell.ratingStars.rating = Double(review.rating)
+        cell.ratingStars.settings.updateOnTouch = false
         cell.movieImage.kf.setImage(with: URL(string: (review.imageUrl)!), placeholder: UIImage(named: "Default Avatar"))
         
         return cell
