@@ -643,18 +643,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Release Year" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pR6-xY-Djf">
-                                <rect key="frame" x="24" y="387.5" width="366" height="38.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Genre" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E0b-HW-4Nc">
-                                <rect key="frame" x="24" y="434" width="366" height="38.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Review" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ub8-JA-Ulb">
-                                <rect key="frame" x="24" y="528.5" width="366" height="131"/>
+                                <rect key="frame" x="24" y="490" width="366" height="169.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
@@ -673,7 +663,7 @@
                                 <color key="color" name="AccentColor"/>
                             </activityIndicatorView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U7D-kU-nOP" customClass="CosmosView" customModule="Cosmos">
-                                <rect key="frame" x="97" y="480.5" width="220" height="40"/>
+                                <rect key="frame" x="97" y="442" width="220" height="40"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="totalStars">
@@ -684,31 +674,41 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Year" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rd3-Q7-Her">
+                                <rect key="frame" x="24" y="387.5" width="175" height="38.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Genre" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PeW-fL-bA0">
+                                <rect key="frame" x="215" y="387.5" width="175" height="38.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jYQ-F0-mdi"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="HCr-RX-nHF" firstAttribute="leading" secondItem="jYQ-F0-mdi" secondAttribute="leading" constant="24" id="3vc-3N-VE7"/>
                             <constraint firstItem="jYQ-F0-mdi" firstAttribute="bottom" secondItem="ub8-JA-Ulb" secondAttribute="bottom" constant="99.5" id="Bvc-ry-zNM"/>
+                            <constraint firstItem="PeW-fL-bA0" firstAttribute="top" secondItem="HCr-RX-nHF" secondAttribute="bottom" constant="8" id="Cgz-Wz-EyI"/>
                             <constraint firstItem="SAw-vc-feC" firstAttribute="top" secondItem="ub8-JA-Ulb" secondAttribute="bottom" constant="8" id="Cgz-iG-ddv"/>
                             <constraint firstItem="jYQ-F0-mdi" firstAttribute="trailing" secondItem="U7D-kU-nOP" secondAttribute="trailing" constant="97" id="ELz-Uh-J71"/>
-                            <constraint firstItem="E0b-HW-4Nc" firstAttribute="top" secondItem="pR6-xY-Djf" secondAttribute="bottom" constant="8" id="EiI-ah-IGa"/>
-                            <constraint firstItem="pR6-xY-Djf" firstAttribute="top" secondItem="HCr-RX-nHF" secondAttribute="bottom" constant="8" id="H1Y-D5-I06"/>
-                            <constraint firstItem="U7D-kU-nOP" firstAttribute="top" secondItem="E0b-HW-4Nc" secondAttribute="bottom" constant="8" id="O6e-Bo-n6t"/>
+                            <constraint firstItem="jYQ-F0-mdi" firstAttribute="trailing" secondItem="PeW-fL-bA0" secondAttribute="trailing" constant="24" id="Kmx-cV-ds5"/>
+                            <constraint firstItem="PeW-fL-bA0" firstAttribute="leading" secondItem="Rd3-Q7-Her" secondAttribute="trailing" constant="16" id="Mzb-SU-Mxy"/>
                             <constraint firstItem="SAw-vc-feC" firstAttribute="leading" secondItem="jYQ-F0-mdi" secondAttribute="leading" constant="182" id="Ob7-Eh-Bja"/>
                             <constraint firstItem="3uC-6j-gEa" firstAttribute="leading" secondItem="jYQ-F0-mdi" secondAttribute="leading" constant="123" id="OcI-J8-Dkt"/>
-                            <constraint firstItem="jYQ-F0-mdi" firstAttribute="trailing" secondItem="E0b-HW-4Nc" secondAttribute="trailing" constant="24" id="Pfl-kw-aaU"/>
-                            <constraint firstItem="pR6-xY-Djf" firstAttribute="leading" secondItem="jYQ-F0-mdi" secondAttribute="leading" constant="24" id="QiV-Kc-5dL"/>
+                            <constraint firstItem="PeW-fL-bA0" firstAttribute="width" secondItem="Rd3-Q7-Her" secondAttribute="width" id="QXR-40-r0h"/>
+                            <constraint firstItem="U7D-kU-nOP" firstAttribute="top" secondItem="Rd3-Q7-Her" secondAttribute="bottom" constant="16" id="RxX-eh-zlv"/>
                             <constraint firstItem="ub8-JA-Ulb" firstAttribute="leading" secondItem="jYQ-F0-mdi" secondAttribute="leading" constant="24" id="Ur5-rA-XCO"/>
                             <constraint firstItem="jYQ-F0-mdi" firstAttribute="trailing" secondItem="HCr-RX-nHF" secondAttribute="trailing" constant="24" id="dGT-ae-E24"/>
-                            <constraint firstItem="E0b-HW-4Nc" firstAttribute="leading" secondItem="jYQ-F0-mdi" secondAttribute="leading" constant="24" id="dOR-0h-jtA"/>
                             <constraint firstItem="HCr-RX-nHF" firstAttribute="top" secondItem="3uC-6j-gEa" secondAttribute="bottom" constant="16" id="eKo-jM-rne"/>
                             <constraint firstItem="3uC-6j-gEa" firstAttribute="top" secondItem="jYQ-F0-mdi" secondAttribute="top" constant="24" id="h4Z-dw-vVf"/>
+                            <constraint firstItem="Rd3-Q7-Her" firstAttribute="leading" secondItem="jYQ-F0-mdi" secondAttribute="leading" constant="24" id="kJ3-OI-ud1"/>
                             <constraint firstItem="ub8-JA-Ulb" firstAttribute="top" secondItem="U7D-kU-nOP" secondAttribute="bottom" constant="8" id="kJS-dQ-zTN"/>
                             <constraint firstItem="jYQ-F0-mdi" firstAttribute="trailing" secondItem="SAw-vc-feC" secondAttribute="trailing" constant="182" id="lqH-2c-yRS"/>
                             <constraint firstItem="jYQ-F0-mdi" firstAttribute="trailing" secondItem="3uC-6j-gEa" secondAttribute="trailing" constant="123" id="pV3-Pj-wl5"/>
+                            <constraint firstItem="Rd3-Q7-Her" firstAttribute="top" secondItem="HCr-RX-nHF" secondAttribute="bottom" constant="8" id="rzo-7j-R3U"/>
                             <constraint firstItem="U7D-kU-nOP" firstAttribute="leading" secondItem="jYQ-F0-mdi" secondAttribute="leading" constant="97" id="vQO-NG-5TS"/>
-                            <constraint firstItem="jYQ-F0-mdi" firstAttribute="trailing" secondItem="pR6-xY-Djf" secondAttribute="trailing" constant="24" id="xSz-WE-Y3u"/>
                             <constraint firstItem="jYQ-F0-mdi" firstAttribute="trailing" secondItem="ub8-JA-Ulb" secondAttribute="trailing" constant="24" id="xmK-6S-sbN"/>
                         </constraints>
                     </view>
@@ -721,12 +721,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="ReviewText" destination="ub8-JA-Ulb" id="9vG-aX-Djv"/>
-                        <outlet property="genreText" destination="E0b-HW-4Nc" id="Y7z-8I-Q9Y"/>
+                        <outlet property="genreText" destination="PeW-fL-bA0" id="Xkb-sT-kHR"/>
                         <outlet property="loading" destination="SAw-vc-feC" id="gaK-mH-VgO"/>
                         <outlet property="movieImage" destination="3uC-6j-gEa" id="bM7-ea-8Bd"/>
                         <outlet property="movieNameText" destination="HCr-RX-nHF" id="SjO-wc-7pb"/>
                         <outlet property="ratingStars" destination="U7D-kU-nOP" id="8O6-FY-0Us"/>
-                        <outlet property="releaseYearText" destination="pR6-xY-Djf" id="xi4-3P-wzt"/>
+                        <outlet property="releaseYearText" destination="Rd3-Q7-Her" id="RfI-Mp-gVn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="79Z-0W-kCZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -104,7 +104,7 @@ extension MyReviewsViewController: UITableViewDataSource {
         
         let review = data[indexPath.row]
         cell.MovieNameText.text = review.movieName
-        cell.releaseYearText.text = String(review.releaseYear)
+        cell.releaseYearText.text = "(\(review.releaseYear))"
         cell.genreText.text = review.genre
         cell.ratingStars.rating = Double(review.rating)
         cell.ratingStars.settings.updateOnTouch = false
