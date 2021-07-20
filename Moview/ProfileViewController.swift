@@ -35,15 +35,18 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        menuViewController = (self.children[0] as? ProfileMenuTableViewController)!
+        menuViewController?.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         Model.instance.getAllUsers { users in
             let user = Model.instance.getUser(byId: Auth.auth().currentUser!.uid)
             self.fullNameText.text = user?.fullName
             self.emailText.text = Auth.auth().currentUser!.email
             self.profileImage.kf.setImage(with: URL(string: (user?.imageUrl)!), placeholder: UIImage(named: "user_avatar"))
         }
-        
-        menuViewController = (self.children[0] as? ProfileMenuTableViewController)!
-        menuViewController?.delegate = self
     }
     
     func displayAlert(message:String) {
@@ -57,7 +60,7 @@ extension ProfileViewController:  ProfileTableViewControllerDelegate {
     func cellTapped(action: MenuAction) {
         switch action {
         case MenuAction.editName:
-            // TODO: change user name
+            self.performSegue(withIdentifier: "toEditProfileSegue", sender: self)
             print(action.rawValue)
             break
         case MenuAction.changePass:

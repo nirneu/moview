@@ -347,6 +347,7 @@
                         <outlet property="profileImage" destination="fSZ-75-B01" id="ZRQ-bt-6cQ"/>
                         <segue destination="tHN-sC-gTX" kind="unwind" identifier="backToLoginSegue" unwindAction="backToLoginWithSegue:" id="ggA-t6-R0Y"/>
                         <segue destination="JPm-gc-QF2" kind="show" identifier="toMyReviewsSegue" id="LSt-2f-4bK"/>
+                        <segue destination="Xez-fF-m0f" kind="show" identifier="toEditProfileSegue" id="XRT-O7-9Ki"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ywp-ud-Zdg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -372,7 +373,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="txu-wR-fbi">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Name, Profile Image" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="txu-wR-fbi">
                                                     <rect key="frame" x="59" y="0.0" width="335" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -444,6 +445,79 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sHb-nH-0zU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1677" y="1654"/>
+        </scene>
+        <!--Edit Profile-->
+        <scene sceneID="g6c-t6-OSN">
+            <objects>
+                <viewController id="Xez-fF-m0f" customClass="EditProfileViewController" customModule="Moview" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XIM-ea-xj6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_avatar" translatesAutoresizingMaskIntoConstraints="NO" id="IkD-on-UbB">
+                                <rect key="frame" x="107" y="80" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="Qio-Ks-g4b"/>
+                                    <constraint firstAttribute="width" constant="200" id="eoB-Le-Ytc"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="100"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Full Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2ZL-tk-hgc">
+                                <rect key="frame" x="24" y="304" width="366" height="38.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hVZ-No-SAL">
+                                <rect key="frame" x="24" y="358.5" width="366" height="38.5"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="ul6-Qt-Ay8">
+                                <rect key="frame" x="182" y="421" width="50" height="37"/>
+                                <color key="color" name="AccentColor"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="on2-9l-4xQ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="2ZL-tk-hgc" firstAttribute="top" secondItem="IkD-on-UbB" secondAttribute="bottom" constant="24" id="15C-63-dxP"/>
+                            <constraint firstItem="hVZ-No-SAL" firstAttribute="leading" secondItem="on2-9l-4xQ" secondAttribute="leading" constant="24" id="GwA-hy-nnv"/>
+                            <constraint firstItem="ul6-Qt-Ay8" firstAttribute="top" secondItem="hVZ-No-SAL" secondAttribute="bottom" constant="24" id="ILQ-WA-o9E"/>
+                            <constraint firstItem="on2-9l-4xQ" firstAttribute="trailing" secondItem="ul6-Qt-Ay8" secondAttribute="trailing" constant="182" id="OxY-h9-OKt"/>
+                            <constraint firstItem="on2-9l-4xQ" firstAttribute="trailing" secondItem="hVZ-No-SAL" secondAttribute="trailing" constant="24" id="RjD-4J-5fw"/>
+                            <constraint firstItem="IkD-on-UbB" firstAttribute="top" secondItem="on2-9l-4xQ" secondAttribute="top" constant="24" id="Vi2-bZ-66B"/>
+                            <constraint firstItem="on2-9l-4xQ" firstAttribute="trailing" secondItem="IkD-on-UbB" secondAttribute="trailing" constant="107" id="abt-Cj-xuy"/>
+                            <constraint firstItem="hVZ-No-SAL" firstAttribute="top" secondItem="2ZL-tk-hgc" secondAttribute="bottom" constant="16" id="b14-I1-Vtc"/>
+                            <constraint firstItem="2ZL-tk-hgc" firstAttribute="leading" secondItem="on2-9l-4xQ" secondAttribute="leading" constant="24" id="d2b-gw-FmP"/>
+                            <constraint firstItem="on2-9l-4xQ" firstAttribute="trailing" secondItem="2ZL-tk-hgc" secondAttribute="trailing" constant="24" id="hN0-Rq-8Dh"/>
+                            <constraint firstItem="IkD-on-UbB" firstAttribute="leading" secondItem="on2-9l-4xQ" secondAttribute="leading" constant="107" id="hq5-GF-bGo"/>
+                            <constraint firstItem="ul6-Qt-Ay8" firstAttribute="leading" secondItem="on2-9l-4xQ" secondAttribute="leading" constant="182" id="lIH-pw-FsM"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Edit Profile" id="c3k-A0-Bp4">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="2hc-rX-yqY">
+                            <connections>
+                                <action selector="saveClicked:" destination="Xez-fF-m0f" id="f2X-b5-d4g"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="emailText" destination="hVZ-No-SAL" id="neb-3c-M4x"/>
+                        <outlet property="fullNameText" destination="2ZL-tk-hgc" id="hCc-UU-Dnx"/>
+                        <outlet property="loading" destination="ul6-Qt-Ay8" id="0wa-Bi-hjE"/>
+                        <outlet property="profileImage" destination="IkD-on-UbB" id="maR-g0-YGA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DyV-KJ-6iN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-675" y="1575"/>
         </scene>
         <!--My Reviews-->
         <scene sceneID="raW-hU-D7G">

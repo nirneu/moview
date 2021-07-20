@@ -118,13 +118,11 @@ class Model {
     }
     
     func addUser(user: User, callback:@escaping (Bool)->Void) {
-        modelFirebase.addUser(user: user) { isAdded in
-            if isAdded {
-                //self.notificationStudentList.post()
-            }
-            
-            callback(isAdded)
-        }
+        modelFirebase.addUser(user: user, callback: callback)
+    }
+    
+    func updateUser(user: User, callback:@escaping (Bool)->Void) {
+        modelFirebase.addUser(user: user, callback: callback)
     }
     
     func getAllUsers(callback:@escaping ([User])->Void){
