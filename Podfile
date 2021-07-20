@@ -10,6 +10,7 @@ pod 'Firebase/Auth'
 pod 'Firebase/Firestore'
 pod 'Firebase/Storage'
 pod 'Kingfisher', '~> 6.0'
+pod 'Cosmos', '~> 23.0'
 
   target 'MoviewTests' do
     inherit! :search_paths
