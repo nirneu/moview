@@ -7,13 +7,14 @@
 
 import UIKit
 import Kingfisher
+import Cosmos
 
 class EditReviewViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     @IBOutlet weak var movieImage: UIImageView!
     @IBOutlet weak var movieNameText: UITextField!
     @IBOutlet weak var releaseYearText: UITextField!
     @IBOutlet weak var genreText: UITextField!
-    @IBOutlet weak var ratingText: UITextField!
+    @IBOutlet weak var ratingStars: CosmosView!
     @IBOutlet weak var ReviewText: UITextView!
     @IBOutlet weak var loading: UIActivityIndicatorView!
     var reviewId: String = ""
@@ -27,7 +28,7 @@ class EditReviewViewController: UIViewController, UIImagePickerControllerDelegat
             review?.movieName = movieNameText.text!
             review?.releaseYear = Int64(releaseYearText.text!)!
             review?.genre = genreText.text!
-            review?.rating = Int64(ratingText.text!)!
+            review?.rating = Int64(ratingStars.rating)
             review?.review = ReviewText.text!
             
             if selectedImage != nil {
@@ -61,12 +62,14 @@ class EditReviewViewController: UIViewController, UIImagePickerControllerDelegat
         ReviewText!.layer.cornerRadius = 5
         ReviewText!.clipsToBounds = true
         
+        ratingStars.settings.fillMode = .full
+        
         if let selectedReview = Model.instance.getReview(byId: reviewId) {
             review = selectedReview
             movieNameText.text = review?.movieName!
             releaseYearText.text = String(review!.releaseYear)
             genreText.text = review?.genre
-            ratingText.text = String(review!.rating)
+            ratingStars.rating = Double(review!.rating)
             ReviewText.text = review?.review
             movieImage.kf.setImage(with: URL(string: (review?.imageUrl)!), placeholder: UIImage(named: "Default Avatar"))
             loading.stopAnimating()
@@ -97,15 +100,9 @@ class EditReviewViewController: UIViewController, UIImagePickerControllerDelegat
     func isFormValid() -> Bool {
         var isValid = true
         
-        checks: if ((self.movieNameText.text?.isEmpty ?? true) || (releaseYearText.text?.isEmpty ?? true) || (genreText.text?.isEmpty ?? true) || (ReviewText.text?.isEmpty ?? true) || (ratingText.text?.isEmpty ?? true)){
+        if ((self.movieNameText.text?.isEmpty ?? true) || (releaseYearText.text?.isEmpty ?? true) || (genreText.text?.isEmpty ?? true) || (ReviewText.text?.isEmpty ?? true)){
             isValid = false
             displayAlert(message: "Please fill all fields")
-            break checks
-        }
-        else if (Int(ratingText.text!)! > 5 && Int(ratingText.text!)! < 0) {
-            isValid = false
-            displayAlert(message: "Rating must be between 0 to 5")
-            break checks
         }
         
         return isValid
