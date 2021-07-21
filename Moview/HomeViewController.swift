@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class HomeViewController: UIViewController {
 
@@ -57,7 +58,7 @@ extension HomeViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 215
+        return 206
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -67,7 +68,7 @@ extension HomeViewController: UITableViewDataSource {
         cell.movieTitle.text = review.movieName
         cell.releaseYear.text = String(review.releaseYear)
         cell.genre.text = review.genre
-//        cell.imageView
+        cell.posterImage.kf.setImage(with: URL(string: review.imageUrl!),placeholder: UIImage(named: "Default Avatar"))
         
         if let user = Model.instance.getUser(byId: review.userId!) {
             cell.userName.text = user.fullName
@@ -81,7 +82,7 @@ extension HomeViewController: UITableViewDelegate {
     /* Table view delegate */
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 
 }
