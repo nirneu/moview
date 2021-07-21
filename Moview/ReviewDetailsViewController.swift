@@ -9,6 +9,13 @@ import UIKit
 
 class ReviewDetailsViewController: UIViewController {
 
+    @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var posterImage: UIImageView!
+    @IBOutlet weak var movieTitle: UILabel!
+    @IBOutlet weak var year: UILabel!
+    @IBOutlet weak var genre: UILabel!
+    @IBOutlet weak var summary: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
