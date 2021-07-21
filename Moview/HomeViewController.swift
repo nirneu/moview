@@ -27,14 +27,6 @@ class HomeViewController: UIViewController {
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-//        if (data.count == 0) {
-//            listScroller.startAnimating()
-//        }
-
-    }
-    
     @objc func refresh(_ sender: AnyObject) {
         self.reloadData()
     }
@@ -72,6 +64,11 @@ extension HomeViewController: UITableViewDataSource {
         
         if let user = Model.instance.getUser(byId: review.userId!) {
             cell.userName.text = user.fullName
+            cell.userImage.kf.setImage(with: URL(string: user.imageUrl!), placeholder: UIImage(named: "user_avatar"))
+            cell.userImage.contentMode = .scaleAspectFill
+            cell.userImage.layer.masksToBounds = false
+            cell.userImage.layer.cornerRadius = cell.userImage.frame.width / 2
+            cell.userImage.clipsToBounds = true
         }
         
         return cell
