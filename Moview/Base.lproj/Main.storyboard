@@ -280,7 +280,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="URu-eR-Bv3">
-                                <rect key="frame" x="16" y="318.5" width="382" height="250"/>
+                                <rect key="frame" x="16" y="302.5" width="382" height="250"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="mnU-nX-Rmn"/>
@@ -290,21 +290,40 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CVH-qD-Rv9" customClass="CosmosView" customModule="Cosmos">
+                                <rect key="frame" x="97" y="622.5" width="220" height="40"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="220" id="Xfi-NR-1z5"/>
+                                    <constraint firstAttribute="height" constant="40" id="fFr-At-9mB"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="totalStars">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="starSize">
+                                        <real key="value" value="40"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="NnD-nz-egC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="URu-eR-Bv3" firstAttribute="top" secondItem="5LY-oR-LKb" secondAttribute="bottom" constant="24" id="5Kl-yo-bYx"/>
+                            <constraint firstItem="URu-eR-Bv3" firstAttribute="top" secondItem="5LY-oR-LKb" secondAttribute="bottom" constant="8" id="5Kl-yo-bYx"/>
                             <constraint firstItem="hpS-hr-3Qw" firstAttribute="leading" secondItem="avw-LS-dhn" secondAttribute="trailing" constant="24" id="9z7-AG-T0q"/>
                             <constraint firstItem="avw-LS-dhn" firstAttribute="leading" secondItem="NnD-nz-egC" secondAttribute="leading" constant="16" id="Ewg-KJ-eE2"/>
                             <constraint firstItem="XeC-T0-HFJ" firstAttribute="top" secondItem="NnD-nz-egC" secondAttribute="top" constant="8" id="Fr9-r7-rdv"/>
                             <constraint firstItem="NnD-nz-egC" firstAttribute="trailing" secondItem="Hcj-r3-Shk" secondAttribute="trailing" constant="24" id="GFW-Vl-fEg"/>
+                            <constraint firstItem="CVH-qD-Rv9" firstAttribute="top" secondItem="URu-eR-Bv3" secondAttribute="bottom" constant="70" id="IUX-6m-V5p"/>
                             <constraint firstItem="hpS-hr-3Qw" firstAttribute="top" secondItem="Hcj-r3-Shk" secondAttribute="bottom" constant="8" id="LEk-mA-SYZ"/>
                             <constraint firstItem="mAQ-lL-yJb" firstAttribute="top" secondItem="NnD-nz-egC" secondAttribute="top" constant="37" id="LJf-xe-Oho"/>
                             <constraint firstItem="Hcj-r3-Shk" firstAttribute="top" secondItem="mAQ-lL-yJb" secondAttribute="bottom" constant="8" id="QVW-uP-zHf"/>
+                            <constraint firstItem="NnD-nz-egC" firstAttribute="trailing" secondItem="CVH-qD-Rv9" secondAttribute="trailing" constant="97" id="XDV-ce-Lit"/>
                             <constraint firstItem="Hcj-r3-Shk" firstAttribute="leading" secondItem="avw-LS-dhn" secondAttribute="trailing" constant="24" id="boF-VF-kLQ"/>
                             <constraint firstItem="NnD-nz-egC" firstAttribute="trailing" secondItem="mAQ-lL-yJb" secondAttribute="trailing" constant="24" id="gV1-a3-0wt"/>
                             <constraint firstItem="mAQ-lL-yJb" firstAttribute="leading" secondItem="avw-LS-dhn" secondAttribute="trailing" constant="24" id="gru-e8-n4f"/>
+                            <constraint firstItem="CVH-qD-Rv9" firstAttribute="leading" secondItem="NnD-nz-egC" secondAttribute="leading" constant="97" id="h68-Lz-Igz"/>
                             <constraint firstItem="XeC-T0-HFJ" firstAttribute="leading" secondItem="6Bg-Ok-xyb" secondAttribute="leading" constant="16" id="jk3-tf-0rK"/>
                             <constraint firstItem="5LY-oR-LKb" firstAttribute="leading" secondItem="NnD-nz-egC" secondAttribute="leading" constant="16" id="mdY-9J-Ye6"/>
                             <constraint firstItem="avw-LS-dhn" firstAttribute="top" secondItem="XeC-T0-HFJ" secondAttribute="bottom" constant="8" id="nZt-0N-054"/>
@@ -319,6 +338,7 @@
                         <outlet property="genre" destination="hpS-hr-3Qw" id="88I-I0-5Z0"/>
                         <outlet property="movieTitle" destination="mAQ-lL-yJb" id="lur-Ez-bGZ"/>
                         <outlet property="posterImage" destination="avw-LS-dhn" id="aXs-Zc-Y6w"/>
+                        <outlet property="ratingStars" destination="CVH-qD-Rv9" id="u7Q-Tx-Q2b"/>
                         <outlet property="review" destination="URu-eR-Bv3" id="QmI-b9-Ohj"/>
                         <outlet property="userName" destination="XeC-T0-HFJ" id="43R-NA-alJ"/>
                         <outlet property="year" destination="Hcj-r3-Shk" id="aJ8-87-l52"/>
@@ -1103,6 +1123,9 @@
         </scene>
     </scenes>
     <designables>
+        <designable name="CVH-qD-Rv9">
+            <size key="intrinsicContentSize" width="220" height="40"/>
+        </designable>
         <designable name="U7D-kU-nOP">
             <size key="intrinsicContentSize" width="220" height="40"/>
         </designable>

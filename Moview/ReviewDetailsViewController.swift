@@ -7,6 +7,7 @@
 
 import UIKit
 import Kingfisher
+import Cosmos
 
 class ReviewDetailsViewController: UIViewController {
 
@@ -16,6 +17,7 @@ class ReviewDetailsViewController: UIViewController {
     @IBOutlet weak var year: UILabel!
     @IBOutlet weak var genre: UILabel!
     @IBOutlet weak var review: UITextView!
+    @IBOutlet weak var ratingStars: CosmosView!
     
     var reviewObejct: Review?
     
@@ -30,7 +32,12 @@ class ReviewDetailsViewController: UIViewController {
         genre.text = reviewObejct!.genre
         posterImage.kf.setImage(with: URL(string: reviewObejct!.imageUrl!),placeholder: UIImage(named: "Default Avatar"))
         review.text = reviewObejct!.review
+        ratingStars.rating = Double(reviewObejct!.rating)
+        ratingStars.settings.updateOnTouch = false
 
-       
+        review!.layer.borderWidth = 0.5
+        review!.layer.borderColor = UIColor.gray.withAlphaComponent(0.5).cgColor
+        review!.layer.cornerRadius = 5
+        review!.clipsToBounds = true
     }
 }
