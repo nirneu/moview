@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import Cosmos
 
 class NewReviewViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -15,7 +16,8 @@ class NewReviewViewController: UIViewController, UIImagePickerControllerDelegate
     @IBOutlet weak var year: UITextField!
     @IBOutlet weak var genre: UITextField!
     @IBOutlet weak var reviewText: UITextView!
-    @IBOutlet weak var rating: UITextField!
+    //@IBOutlet weak var rating: UITextField!
+    @IBOutlet weak var ratingStars: CosmosView!
     @IBOutlet weak var loading: UIActivityIndicatorView!
     var selectedImageVar: UIImage?
     
@@ -25,7 +27,7 @@ class NewReviewViewController: UIViewController, UIImagePickerControllerDelegate
         super.viewDidLoad()
         loading.stopAnimating()
         
-        // Set profile image clickable
+        // Set movie image clickable
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
         selectedImage.isUserInteractionEnabled = true
         selectedImage.addGestureRecognizer(tapGestureRecognizer)
@@ -35,6 +37,7 @@ class NewReviewViewController: UIViewController, UIImagePickerControllerDelegate
         reviewText!.layer.cornerRadius = 5
         reviewText!.clipsToBounds = true
 
+        ratingStars.rating = 0
     }
     
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
@@ -55,10 +58,6 @@ class NewReviewViewController: UIViewController, UIImagePickerControllerDelegate
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         selectedImageVar = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
         self.selectedImage.image = selectedImageVar
-//        self.selectedImage.contentMode = .scaleAspectFill
-//        self.selectedImage.layer.masksToBounds = false
-//        self.selectedImage.layer.cornerRadius = self.selectedImage.frame.width / 2
-//        self.selectedImage.clipsToBounds = true
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -69,7 +68,7 @@ class NewReviewViewController: UIViewController, UIImagePickerControllerDelegate
             let reviewId = Model.instance.generateReviewId()
             Model.instance.saveReviewImage(image: self.selectedImageVar!, reviewId: reviewId) { imageUrl in
                 if imageUrl != "" {
-                    let review = Review.createReview(id: reviewId, movieName: self.movieName.text!, releaseYear: Int64(self.year.text!)!, genre: self.genre.text!, imageUrl: imageUrl, rating: Int64(self.rating.text!)!, review: self.reviewText.text!, userId: Auth.auth().currentUser!.uid, lastUpdated: 0)
+                    let review = Review.createReview(id: reviewId, movieName: self.movieName.text!, releaseYear: Int64(self.year.text!)!, genre: self.genre.text!, imageUrl: imageUrl, rating: Int64(self.ratingStars.rating), review: self.reviewText.text!, userId: Auth.auth().currentUser!.uid, lastUpdated: 0)
                     
                     Model.instance.add(review: review) { isAdded in
                         if isAdded {
@@ -93,14 +92,9 @@ class NewReviewViewController: UIViewController, UIImagePickerControllerDelegate
             displayAlert(message: "Please choose a profile picture")
             break checks
         }
-        else if ((self.movieName.text?.isEmpty ?? true) || (year.text?.isEmpty ?? true) || (genre.text?.isEmpty ?? true) || (reviewText.text?.isEmpty ?? true) || (rating.text?.isEmpty ?? true)){
+        else if ((self.movieName.text?.isEmpty ?? true) || (year.text?.isEmpty ?? true) || (genre.text?.isEmpty ?? true) || (reviewText.text?.isEmpty ?? true)){
             isValid = false
             displayAlert(message: "Please fill all fields")
-            break checks
-        }
-        else if (Int(rating.text!)! > 5 && Int(rating.text!)! < 0) {
-            isValid = false
-            displayAlert(message: "Rating must be between 0 to 5")
             break checks
         }
         
