@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class HomeViewController: UIViewController {
 
@@ -67,7 +68,7 @@ extension HomeViewController: UITableViewDataSource {
         cell.movieTitle.text = review.movieName
         cell.releaseYear.text = String(review.releaseYear)
         cell.genre.text = review.genre
-//        cell.imageView
+        cell.imageView!.kf.setImage(with: URL(string: review.imageUrl!))
         
         if let user = Model.instance.getUser(byId: review.userId!) {
             cell.userName.text = user.fullName
