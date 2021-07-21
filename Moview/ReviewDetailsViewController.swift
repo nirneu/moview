@@ -28,6 +28,10 @@ class ReviewDetailsViewController: UIViewController {
         if let user = Model.instance.getUser(byId: reviewObejct!.userId!) {
             userName.text = user.fullName
             userImage.kf.setImage(with: URL(string: user.imageUrl!),placeholder: UIImage(named: "user_avatar"))
+            userImage.contentMode = .scaleAspectFill
+            userImage.layer.masksToBounds = false
+            userImage.layer.cornerRadius = userImage.frame.width / 2
+            userImage.clipsToBounds = true
         }
         movieTitle.text = reviewObejct!.movieName
         year.text = "(\(reviewObejct!.releaseYear))"
