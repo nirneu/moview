@@ -39,5 +39,7 @@ class ReviewDetailsViewController: UIViewController {
         review!.layer.borderColor = UIColor.gray.withAlphaComponent(0.5).cgColor
         review!.layer.cornerRadius = 5
         review!.clipsToBounds = true
+        
+        review.isEditable = false
     }
 }
