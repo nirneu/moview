@@ -20,6 +20,7 @@
 		842CDED12698C18000318F0A /* ReviewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842CDED02698C18000318F0A /* ReviewsTableViewCell.swift */; };
 		842CDF19269A054E00318F0A /* ReviewModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 842CDF17269A054E00318F0A /* ReviewModel.xcdatamodeld */; };
 		8436A3CD26A3650700528F43 /* Review+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8436A3CC26A3650600528F43 /* Review+CoreDataProperties.swift */; };
+		8436A43126A8A30A00528F43 /* ReviewDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8436A43026A8A30A00528F43 /* ReviewDetailsViewController.swift */; };
 		847D39A9268F6A74005DE603 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 847D39A8268F6A74005DE603 /* GoogleService-Info.plist */; };
 		849CB07D26A069D500991076 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849CB07C26A069D500991076 /* User+CoreDataProperties.swift */; };
 		84AE3CFF26A5F8B50021F2F7 /* EditReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AE3CFE26A5F8B50021F2F7 /* EditReviewViewController.swift */; };
@@ -75,6 +76,7 @@
 		842CDED02698C18000318F0A /* ReviewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsTableViewCell.swift; sourceTree = "<group>"; };
 		842CDF18269A054E00318F0A /* ReviewModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ReviewModel.xcdatamodel; sourceTree = "<group>"; };
 		8436A3CC26A3650600528F43 /* Review+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Review+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		8436A43026A8A30A00528F43 /* ReviewDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewDetailsViewController.swift; sourceTree = "<group>"; };
 		847D39A8268F6A74005DE603 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		849CB07C26A069D500991076 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		84AE3CFE26A5F8B50021F2F7 /* EditReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditReviewViewController.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				841A5C0526A4CB0C00AAABC6 /* MyReviewsTableViewCell.swift */,
 				84AE3CFE26A5F8B50021F2F7 /* EditReviewViewController.swift */,
 				84B51C6626A6FAD300DC5C56 /* EditProfileViewController.swift */,
+				8436A43026A8A30A00528F43 /* ReviewDetailsViewController.swift */,
 			);
 			path = Moview;
 			sourceTree = "<group>";
@@ -490,6 +493,7 @@
 				8436A3CD26A3650700528F43 /* Review+CoreDataProperties.swift in Sources */,
 				84C72C42269DA7AD00D24C4F /* User+CoreDataClass.swift in Sources */,
 				849CB07D26A069D500991076 /* User+CoreDataProperties.swift in Sources */,
+				8436A43126A8A30A00528F43 /* ReviewDetailsViewController.swift in Sources */,
 				84B2AFC8268F553200319818 /* AppDelegate.swift in Sources */,
 				842CDEC42693539100318F0A /* Model.swift in Sources */,
 				84AE3CFF26A5F8B50021F2F7 /* EditReviewViewController.swift in Sources */,

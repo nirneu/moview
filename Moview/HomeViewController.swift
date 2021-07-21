@@ -49,6 +49,13 @@ class HomeViewController: UIViewController {
             }
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? ReviewDetailsViewController {
+            destination.reviewObejct = data[(reviewsTableView.indexPathForSelectedRow?.row)!]
+            reviewsTableView.deselectRow(at: reviewsTableView.indexPathForSelectedRow!, animated: true)
+        }
+    }
 }
     
 extension HomeViewController: UITableViewDataSource {
@@ -82,7 +89,7 @@ extension HomeViewController: UITableViewDelegate {
     /* Table view delegate */
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+        performSegue(withIdentifier: "showReviewDetails", sender: self)
     }
 
 }
