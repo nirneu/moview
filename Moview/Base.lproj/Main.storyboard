@@ -261,8 +261,8 @@
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" systemColor="labelColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Summary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5LY-oR-LKb">
-                                <rect key="frame" x="16" y="261" width="111.5" height="33.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Review" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5LY-oR-LKb">
+                                <rect key="frame" x="16" y="261" width="83.5" height="33.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" systemColor="labelColor"/>
@@ -319,7 +319,7 @@
                         <outlet property="genre" destination="hpS-hr-3Qw" id="88I-I0-5Z0"/>
                         <outlet property="movieTitle" destination="mAQ-lL-yJb" id="lur-Ez-bGZ"/>
                         <outlet property="posterImage" destination="avw-LS-dhn" id="aXs-Zc-Y6w"/>
-                        <outlet property="summary" destination="URu-eR-Bv3" id="Qr3-8G-fDm"/>
+                        <outlet property="review" destination="URu-eR-Bv3" id="QmI-b9-Ohj"/>
                         <outlet property="userName" destination="XeC-T0-HFJ" id="43R-NA-alJ"/>
                         <outlet property="year" destination="Hcj-r3-Shk" id="aJ8-87-l52"/>
                     </connections>
