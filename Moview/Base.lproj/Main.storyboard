@@ -164,7 +164,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvw-aO-xgB">
-                                                    <rect key="frame" x="52" y="19" width="91" height="24"/>
+                                                    <rect key="frame" x="52" y="19" width="318" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -223,6 +223,7 @@
                                                 <constraint firstItem="9lh-kV-qO7" firstAttribute="leading" secondItem="sXg-ol-41V" secondAttribute="trailing" constant="24" id="aoJ-OE-FGd"/>
                                                 <constraint firstAttribute="trailing" secondItem="CmD-QR-UVV" secondAttribute="trailing" constant="24" id="fYf-uY-SV4"/>
                                                 <constraint firstItem="BYA-F4-0dm" firstAttribute="leading" secondItem="sXg-ol-41V" secondAttribute="trailing" constant="24" id="hbf-gV-DBo"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="cvw-aO-xgB" secondAttribute="trailing" constant="24" id="mbd-LW-hte"/>
                                                 <constraint firstItem="cvw-aO-xgB" firstAttribute="leading" secondItem="rXt-EO-YFT" secondAttribute="trailing" constant="8" id="nVl-N9-1Pf"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="BYA-F4-0dm" secondAttribute="trailing" constant="24" id="oTZ-NI-RQe"/>
                                                 <constraint firstAttribute="bottom" secondItem="CmD-QR-UVV" secondAttribute="bottom" constant="8" id="tpQ-8h-jRg"/>
@@ -284,8 +285,8 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XeC-T0-HFJ">
-                                <rect key="frame" x="16" y="64" width="78.5" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="48" y="64" width="342" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -340,6 +341,13 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_avatar" translatesAutoresizingMaskIntoConstraints="NO" id="wCY-x2-7sa">
+                                <rect key="frame" x="16" y="64" width="24" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="O4r-Qh-bhx"/>
+                                    <constraint firstAttribute="height" constant="24" id="qh7-nm-1FF"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="NnD-nz-egC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -352,19 +360,22 @@
                             <constraint firstItem="CVH-qD-Rv9" firstAttribute="top" secondItem="URu-eR-Bv3" secondAttribute="bottom" constant="70" id="IUX-6m-V5p"/>
                             <constraint firstItem="hpS-hr-3Qw" firstAttribute="top" secondItem="Hcj-r3-Shk" secondAttribute="bottom" constant="8" id="LEk-mA-SYZ"/>
                             <constraint firstItem="mAQ-lL-yJb" firstAttribute="top" secondItem="NnD-nz-egC" secondAttribute="top" constant="37" id="LJf-xe-Oho"/>
+                            <constraint firstItem="wCY-x2-7sa" firstAttribute="leading" secondItem="NnD-nz-egC" secondAttribute="leading" constant="16" id="OUh-vn-msX"/>
                             <constraint firstItem="Hcj-r3-Shk" firstAttribute="top" secondItem="mAQ-lL-yJb" secondAttribute="bottom" constant="8" id="QVW-uP-zHf"/>
+                            <constraint firstItem="XeC-T0-HFJ" firstAttribute="leading" secondItem="wCY-x2-7sa" secondAttribute="trailing" constant="8" id="U3A-4o-mzq"/>
                             <constraint firstItem="NnD-nz-egC" firstAttribute="trailing" secondItem="CVH-qD-Rv9" secondAttribute="trailing" constant="97" id="XDV-ce-Lit"/>
+                            <constraint firstItem="avw-LS-dhn" firstAttribute="top" secondItem="wCY-x2-7sa" secondAttribute="bottom" constant="5" id="Zbh-YQ-op2"/>
                             <constraint firstItem="Hcj-r3-Shk" firstAttribute="leading" secondItem="avw-LS-dhn" secondAttribute="trailing" constant="24" id="boF-VF-kLQ"/>
                             <constraint firstItem="NnD-nz-egC" firstAttribute="trailing" secondItem="mAQ-lL-yJb" secondAttribute="trailing" constant="24" id="gV1-a3-0wt"/>
                             <constraint firstItem="mAQ-lL-yJb" firstAttribute="leading" secondItem="avw-LS-dhn" secondAttribute="trailing" constant="24" id="gru-e8-n4f"/>
                             <constraint firstItem="CVH-qD-Rv9" firstAttribute="leading" secondItem="NnD-nz-egC" secondAttribute="leading" constant="97" id="h68-Lz-Igz"/>
-                            <constraint firstItem="XeC-T0-HFJ" firstAttribute="leading" secondItem="6Bg-Ok-xyb" secondAttribute="leading" constant="16" id="jk3-tf-0rK"/>
                             <constraint firstItem="5LY-oR-LKb" firstAttribute="leading" secondItem="NnD-nz-egC" secondAttribute="leading" constant="16" id="mdY-9J-Ye6"/>
-                            <constraint firstItem="avw-LS-dhn" firstAttribute="top" secondItem="XeC-T0-HFJ" secondAttribute="bottom" constant="8" id="nZt-0N-054"/>
                             <constraint firstItem="NnD-nz-egC" firstAttribute="trailing" secondItem="URu-eR-Bv3" secondAttribute="trailing" constant="16" id="pX1-Ho-noo"/>
                             <constraint firstItem="5LY-oR-LKb" firstAttribute="top" secondItem="avw-LS-dhn" secondAttribute="bottom" constant="24" id="qpM-LE-eVA"/>
+                            <constraint firstItem="NnD-nz-egC" firstAttribute="trailing" secondItem="XeC-T0-HFJ" secondAttribute="trailing" constant="24" id="sdS-BT-5rd"/>
                             <constraint firstItem="NnD-nz-egC" firstAttribute="trailing" secondItem="hpS-hr-3Qw" secondAttribute="trailing" constant="24" id="w0g-TR-ixJ"/>
                             <constraint firstItem="URu-eR-Bv3" firstAttribute="leading" secondItem="NnD-nz-egC" secondAttribute="leading" constant="16" id="wLe-iT-aGt"/>
+                            <constraint firstItem="wCY-x2-7sa" firstAttribute="top" secondItem="NnD-nz-egC" secondAttribute="top" constant="8" id="zSG-aV-upy"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Review Details" id="gLD-dB-ihG"/>
@@ -374,13 +385,14 @@
                         <outlet property="posterImage" destination="avw-LS-dhn" id="aXs-Zc-Y6w"/>
                         <outlet property="ratingStars" destination="CVH-qD-Rv9" id="u7Q-Tx-Q2b"/>
                         <outlet property="review" destination="URu-eR-Bv3" id="QmI-b9-Ohj"/>
+                        <outlet property="userImage" destination="wCY-x2-7sa" id="cbK-ST-Zqr"/>
                         <outlet property="userName" destination="XeC-T0-HFJ" id="43R-NA-alJ"/>
                         <outlet property="year" destination="Hcj-r3-Shk" id="aJ8-87-l52"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IHV-TK-xFR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4984" y="1804"/>
+            <point key="canvasLocation" x="-4984.057971014493" y="1803.3482142857142"/>
         </scene>
         <!--Search-->
         <scene sceneID="bQk-Gn-QWY">
@@ -1168,11 +1180,11 @@
         <designable name="43X-yS-7Sa">
             <size key="intrinsicContentSize" width="220" height="40"/>
         </designable>
-        <designable name="CmD-QR-UVV">
-            <size key="intrinsicContentSize" width="170" height="30"/>
-        </designable>
         <designable name="CVH-qD-Rv9">
             <size key="intrinsicContentSize" width="220" height="40"/>
+        </designable>
+        <designable name="CmD-QR-UVV">
+            <size key="intrinsicContentSize" width="170" height="30"/>
         </designable>
         <designable name="U7D-kU-nOP">
             <size key="intrinsicContentSize" width="220" height="40"/>

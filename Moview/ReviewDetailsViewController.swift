@@ -11,6 +11,7 @@ import Cosmos
 
 class ReviewDetailsViewController: UIViewController {
 
+    @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var posterImage: UIImageView!
     @IBOutlet weak var movieTitle: UILabel!
@@ -26,9 +27,10 @@ class ReviewDetailsViewController: UIViewController {
         
         if let user = Model.instance.getUser(byId: reviewObejct!.userId!) {
             userName.text = user.fullName
+            userImage.kf.setImage(with: URL(string: user.imageUrl!),placeholder: UIImage(named: "user_avatar"))
         }
         movieTitle.text = reviewObejct!.movieName
-        year.text = String(reviewObejct!.releaseYear)
+        year.text = "(\(reviewObejct!.releaseYear))"
         genre.text = reviewObejct!.genre
         posterImage.kf.setImage(with: URL(string: reviewObejct!.imageUrl!),placeholder: UIImage(named: "Default Avatar"))
         review.text = reviewObejct!.review
