@@ -187,6 +187,18 @@
                                                         <constraint firstAttribute="width" constant="24" id="bAa-AT-l9f"/>
                                                     </constraints>
                                                 </imageView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CmD-QR-UVV" customClass="CosmosView" customModule="Cosmos">
+                                                    <rect key="frame" x="155" y="147.5" width="235" height="58.5"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="totalStars">
+                                                            <integer key="value" value="5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="starSize">
+                                                            <real key="value" value="30"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="9lh-kV-qO7" firstAttribute="top" secondItem="H29-jq-8y7" secondAttribute="topMargin" constant="37" id="1dO-A0-dIa"/>
@@ -194,15 +206,19 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="9lh-kV-qO7" secondAttribute="trailing" constant="24" id="9XT-lY-oew"/>
                                                 <constraint firstItem="BYA-F4-0dm" firstAttribute="top" secondItem="O1e-Ka-hqv" secondAttribute="bottom" constant="8" id="9ik-9p-O5y"/>
                                                 <constraint firstItem="sXg-ol-41V" firstAttribute="leading" secondItem="H29-jq-8y7" secondAttribute="leadingMargin" id="B6g-Z3-0ca"/>
+                                                <constraint firstItem="CmD-QR-UVV" firstAttribute="leading" secondItem="sXg-ol-41V" secondAttribute="trailing" constant="24" id="EFK-h4-N6U"/>
                                                 <constraint firstItem="rXt-EO-YFT" firstAttribute="top" secondItem="H29-jq-8y7" secondAttribute="topMargin" constant="8" id="MdR-5d-3e7"/>
+                                                <constraint firstItem="CmD-QR-UVV" firstAttribute="top" secondItem="BYA-F4-0dm" secondAttribute="bottom" constant="8" id="Twv-fG-QdH"/>
                                                 <constraint firstItem="O1e-Ka-hqv" firstAttribute="top" secondItem="9lh-kV-qO7" secondAttribute="bottom" constant="8" id="Xs9-0n-TMP"/>
                                                 <constraint firstItem="cvw-aO-xgB" firstAttribute="top" secondItem="H29-jq-8y7" secondAttribute="topMargin" constant="8" id="YmV-iy-dzw"/>
                                                 <constraint firstItem="O1e-Ka-hqv" firstAttribute="leading" secondItem="sXg-ol-41V" secondAttribute="trailing" constant="24" id="ZCL-cI-1Mi"/>
                                                 <constraint firstItem="rXt-EO-YFT" firstAttribute="leading" secondItem="H29-jq-8y7" secondAttribute="leadingMargin" id="acQ-kj-rLX"/>
                                                 <constraint firstItem="9lh-kV-qO7" firstAttribute="leading" secondItem="sXg-ol-41V" secondAttribute="trailing" constant="24" id="aoJ-OE-FGd"/>
+                                                <constraint firstAttribute="trailing" secondItem="CmD-QR-UVV" secondAttribute="trailing" constant="24" id="fYf-uY-SV4"/>
                                                 <constraint firstItem="BYA-F4-0dm" firstAttribute="leading" secondItem="sXg-ol-41V" secondAttribute="trailing" constant="24" id="hbf-gV-DBo"/>
                                                 <constraint firstItem="cvw-aO-xgB" firstAttribute="leading" secondItem="rXt-EO-YFT" secondAttribute="trailing" constant="8" id="nVl-N9-1Pf"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="BYA-F4-0dm" secondAttribute="trailing" constant="24" id="oTZ-NI-RQe"/>
+                                                <constraint firstAttribute="bottom" secondItem="CmD-QR-UVV" secondAttribute="bottom" constant="8" id="tpQ-8h-jRg"/>
                                                 <constraint firstItem="sXg-ol-41V" firstAttribute="top" secondItem="rXt-EO-YFT" secondAttribute="bottom" constant="8" id="ubF-vI-VEi"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="sXg-ol-41V" secondAttribute="bottom" constant="8" id="y4e-qG-4tn"/>
                                             </constraints>
@@ -211,6 +227,7 @@
                                             <outlet property="genre" destination="BYA-F4-0dm" id="qas-SH-Y4P"/>
                                             <outlet property="movieTitle" destination="9lh-kV-qO7" id="gOV-N2-Xr8"/>
                                             <outlet property="posterImage" destination="sXg-ol-41V" id="YLH-bg-4ea"/>
+                                            <outlet property="ratingStars" destination="CmD-QR-UVV" id="fCQ-Qp-jcU"/>
                                             <outlet property="releaseYear" destination="O1e-Ka-hqv" id="Wuf-0s-KCM"/>
                                             <outlet property="userImage" destination="rXt-EO-YFT" id="o1p-Gh-iRp"/>
                                             <outlet property="userName" destination="cvw-aO-xgB" id="lrM-S7-CBS"/>
@@ -241,7 +258,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1VX-cI-MWE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4984" y="1100"/>
+            <point key="canvasLocation" x="-4984.057971014493" y="1099.5535714285713"/>
         </scene>
         <!--Search-->
         <scene sceneID="bQk-Gn-QWY">
@@ -588,6 +605,14 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p6e-mg-PCh" customClass="CosmosView" customModule="Cosmos">
                                                     <rect key="frame" x="155" y="118.5" width="215" height="44.5"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="starSize">
+                                                            <real key="value" value="30"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="totalStars">
+                                                            <integer key="value" value="5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
                                             <constraints>
@@ -1018,11 +1043,14 @@
         </scene>
     </scenes>
     <designables>
+        <designable name="CmD-QR-UVV">
+            <size key="intrinsicContentSize" width="170" height="30"/>
+        </designable>
         <designable name="U7D-kU-nOP">
             <size key="intrinsicContentSize" width="220" height="40"/>
         </designable>
         <designable name="p6e-mg-PCh">
-            <size key="intrinsicContentSize" width="120" height="20"/>
+            <size key="intrinsicContentSize" width="170" height="30"/>
         </designable>
     </designables>
     <resources>

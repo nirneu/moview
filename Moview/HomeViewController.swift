@@ -58,9 +58,11 @@ extension HomeViewController: UITableViewDataSource {
         
         let review = data[indexPath.row]
         cell.movieTitle.text = review.movieName
-        cell.releaseYear.text = String(review.releaseYear)
+        cell.releaseYear.text = "(\(review.releaseYear))"
         cell.genre.text = review.genre
         cell.posterImage.kf.setImage(with: URL(string: review.imageUrl!),placeholder: UIImage(named: "Default Avatar"))
+        cell.ratingStars.rating = Double(review.rating)
+        cell.ratingStars.settings.updateOnTouch = false
         
         if let user = Model.instance.getUser(byId: review.userId!) {
             cell.userName.text = user.fullName
