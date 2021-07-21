@@ -6,14 +6,17 @@
 //
 
 import UIKit
+import Cosmos
 
 class ReviewsTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var posterImage: UIImageView!
     @IBOutlet weak var movieTitle: UILabel!
     @IBOutlet weak var releaseYear: UILabel!
     @IBOutlet weak var genre: UILabel!
+    @IBOutlet weak var ratingStars: CosmosView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

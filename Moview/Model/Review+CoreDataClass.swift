@@ -76,7 +76,7 @@ extension Review {
         
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let request = Review.fetchRequest() as NSFetchRequest<Review>
-        request.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
+        request.sortDescriptors = [NSSortDescriptor(key: "lastUpdated", ascending: false)]
         
         DispatchQueue.global().async {
             // second thread code
