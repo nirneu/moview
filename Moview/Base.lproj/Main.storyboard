@@ -394,22 +394,6 @@
             </objects>
             <point key="canvasLocation" x="-4984.057971014493" y="1803.3482142857142"/>
         </scene>
-        <!--Search-->
-        <scene sceneID="bQk-Gn-QWY">
-            <objects>
-                <viewController id="YI9-Xn-MH3" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="rsa-dS-CVV">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="4dy-ci-Tfh"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass" catalog="system" id="RCO-Kp-lPX"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="maA-bt-7cV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-3349" y="1100"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="tIJ-HW-zmB">
             <objects>
@@ -422,7 +406,6 @@
                     </tabBar>
                     <connections>
                         <segue destination="22F-HJ-DFW" kind="relationship" relationship="viewControllers" id="qc0-mU-Ot2"/>
-                        <segue destination="YI9-Xn-MH3" kind="relationship" relationship="viewControllers" id="FU5-GM-nLx"/>
                         <segue destination="ffM-CM-Xl3" kind="relationship" relationship="viewControllers" id="10k-c1-zCA"/>
                     </connections>
                 </tabBarController>
@@ -1200,7 +1183,6 @@
         <image name="house" catalog="system" width="128" height="106"/>
         <image name="lock.fill" catalog="system" width="128" height="128"/>
         <image name="logo" width="158" height="158"/>
-        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="plus" catalog="system" width="128" height="113"/>
